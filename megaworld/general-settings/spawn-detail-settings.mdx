@@ -10,7 +10,7 @@ This component is used for **Unity/Terrain Detail** prototypes in tools such as 
 ## Settings
 
 - **Use Random Opacity** randomizes the written detail strength per pixel. This helps break up uniform coverage and makes grass feel less repetitive.
-- **Density** sets the target detail strength MegaWorld writes into the detail map. Higher values produce denser grass or detail coverage.
+- **Density (%)** sets the target as a percentage of the **Max Instances Per Cell** value in Grass Spawn preferences. For example, 40% with a maximum of 10 gives a target of four instances before mask and random variation.
 - **Failure Rate (%)** adds an extra chance to skip spawning on a pixel. Higher values create a sparser result.
 
 ## How it works
@@ -19,6 +19,10 @@ This component is used for **Unity/Terrain Detail** prototypes in tools such as 
 - It converts that fitness into a target strength from `0` to **Density**.
 - If **Use Random Opacity** is enabled, MegaWorld multiplies that fitness by a random value before converting it into target strength.
 - If **Failure Rate (%)** triggers, the target strength for that pixel becomes `0`.
+- Mask fitness also controls a separate random rejection, so soft mask edges both thin the density and increase the chance of an empty cell.
+- Stamping writes the calculated value into the selected prototype's detail layer within the area; it is not added to the existing value. Different groups sharing the same terrain detail prototype therefore affect the same layer.
+
+For layered vegetation, use distinct prototypes and tune each prototype's mask stack and settings. Noise creates irregular patches, while a slope filter can reduce coverage on steep rock. The Terrain must use **Instance Count** scatter mode; make sure its vegetation renderer is enabled and refresh its terrain data after edits.
 
 <Note>
   Use **Use Random Opacity** together with a medium **Density** when you want natural grass variation. Increase **Failure Rate (%)** when you want more empty patches without changing the overall mask shape.

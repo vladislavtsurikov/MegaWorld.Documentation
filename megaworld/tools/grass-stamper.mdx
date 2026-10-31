@@ -79,3 +79,9 @@ Grass Stamper is best when you want:
 - a one-shot density pass for grass, flowers, or mesh details across a large terrain;
 - per-prototype mask filter control so each grass type has independent placement rules;
 - a stamper workflow for detail that mirrors how Object Stamper handles objects.
+
+Use several groups when vegetation layers need different settings. Each Terrain Detail prototype has its own density, failure rate and mask stack, including noise and slope filters. Grouping prototypes makes these layers easier to organize; groups that reference the same terrain detail prototype still write to the same terrain layer.
+
+## Third-party vegetation renderers
+
+Some renderers cache Terrain Details and need their terrain data refreshed after a spawn. With Nature Renderer, refresh the renderer after changing detail prototypes or detail layers. A material's `NatureRendererInstancing` tag alone does not add procedural instancing to its shader. If The Visual Engine foliage is stretched or misplaced under Nature Renderer, use the TVE Shader Manager to configure the material's shader for **Nature Renderer (Instanced Indirect)**, then let Unity reimport the shader and refresh the renderer. This modifies the shared shader and affects all materials using it; verify other uses as well.
