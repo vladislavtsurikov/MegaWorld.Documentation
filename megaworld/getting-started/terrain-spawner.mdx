@@ -1,0 +1,116 @@
+---
+sidebarTitle: "Getting Started"
+title: "Terrain Spawner — Getting Started"
+description: "Spawn your first GameObjects across a terrain using the Terrain Spawner in just a few steps."
+---
+
+<Info>
+  Before starting this tutorial, read [Working with Data](/megaworld/getting-started/working-with-data) to understand Groups, Resource Types, and Prototypes.
+</Info>
+
+This guide walks you through setting up a basic vegetation spawn using the **Terrain Spawner** tool and the **Unity/GameObject** resource type. By the end you will have a working spawner that places trees across your terrain with a single click.
+
+## Before you begin
+
+You need:
+
+- A Unity project with MegaWorld installed.
+- A terrain in your scene.
+
+---
+
+## Step 1 — Create a Terrain Spawner
+
+Go to `GameObject > MegaWorld > Add Terrain Spawner`.
+
+A new **Terrain Spawner** object appears in your Hierarchy. Its Transform scale defaults to `(500, 500, 500)`, which sets the initial stamper area size. You can create several Terrain Spawners and switch between them — each one holds its own group stack and settings.
+
+---
+
+## Step 2 — Add a Group
+
+Select the Terrain Spawner in the Hierarchy. In the **MegaWorld Window**, click **Add Type** to create a new Group.
+
+A Group asset is created in your project. Rename it to something descriptive, for example **Trees**.
+
+---
+
+## Step 3 — Add prototypes to the Group
+
+Inside the Group, click **Add Resource** and choose the resource type you want to spawn:
+
+- **Unity/GameObject** — standard Prefab instances placed in the scene.
+- **Terrain Object** — GPU-instanced objects managed by Renderer Stack.
+- **Unity/Terrain Detail** — grass and mesh detail painted onto Unity Terrain.
+
+For a basic tree spawn, choose **Unity/GameObject** and drag your tree Prefabs into the prototype list.
+
+<Note>
+  You can add multiple Prefabs to the same Group. Terrain Spawner selects among them randomly during spawning, weighted by each prototype's Success Settings, which helps break up visual repetition.
+</Note>
+
+---
+
+## Step 4 — Configure Scatter Settings
+
+In the Group settings, expand **Scatter Settings** to control how sample positions are generated across the area. Increase density to spawn more objects per unit area, or switch the scatter mode to adjust the distribution pattern.
+
+---
+
+## Step 5 — Configure filters (optional)
+
+Expand the **Filter Settings** for the Group. Add [Mask Filters](/megaworld/mask-filters/overview) to restrict placement by height, slope, or terrain texture. Common setups:
+
+- **Slope filter** — trees on flat ground, rocks on steep slopes.
+- **Height filter** — snow only at high elevations.
+- **Noise filter** — organic cluster patterns.
+
+On non-Unity-Terrain surfaces (polygon meshes), switch to **Simple Filter**, which evaluates height, slope, and noise directly from raycasts without requiring terrain data.
+
+---
+
+## Step 6 — Configure Transform Components (optional)
+
+In the prototype settings, add [Transform Components](/megaworld/transform-components/overview) to randomize scale, rotation, or position offset for each placed object. At minimum, add a rotation randomizer so trees face different directions.
+
+---
+
+## Step 7 — Set the area and spawn
+
+The stamper area is controlled by the Transform scale of the Terrain Spawner GameObject. Scale it in the Scene View to cover the terrain region you want to fill.
+
+In the **Stamper Tool Controller** section, click **Spawn**. Terrain Spawner evaluates each active Group and places objects across the area according to your scatter, filter, and transform settings.
+
+---
+
+## Step 8 — Enable Auto Respawn for fast iteration (optional)
+
+Turn on **Auto Respawn** in the Stamper Tool Controller. With this on, Terrain Spawner automatically removes the current spawn result and re-runs the pass whenever you change a setting. Use **Delay Auto Spawn** to set a short wait in seconds before the respawn triggers.
+
+This is especially useful when tuning Mask Filters — you can adjust a slope or height filter and immediately see the result update in the scene without clicking Spawn manually.
+
+---
+
+## Adding Terrain Detail (grass)
+
+To spawn grass or mesh details on Unity Terrain, add a second Group to the same Terrain Spawner (or create a separate one):
+
+1. Click **Add Type** and create a Group.
+2. Click **Add Resource** and choose **Unity/Terrain Detail**.
+3. Assign a detail prototype that matches one already registered in the Unity Terrain Inspector.
+4. In the prototype settings, configure **Spawn Detail Settings**:
+   - **Density** — maximum detail count per terrain cell.
+   - **Use Random Opacity** — adds variation so cells at the same filter fitness get different counts.
+   - **Failure Rate** — randomly zeroes out some cells to create sparse gaps.
+5. Add **Mask Filters** to the prototype to control where the detail appears.
+6. Click **Spawn**.
+
+---
+
+## What's next
+
+- Add more Groups to mix vegetation types in the same spawner.
+- Use [Texture Stamper](/megaworld/getting-started/texture-stamper) to paint terrain textures before running a vegetation pass.
+- Switch to [Advanced Brush](/megaworld/getting-started/advanced-brush) to paint vegetation interactively using the same Group settings.
+- Use [Brush Modify](/megaworld/getting-started/brush-modify) to art-direct already spawned objects.
+- Read the full [Terrain Spawner](/megaworld/tools/terrain-spawner) reference for all settings and behaviors.

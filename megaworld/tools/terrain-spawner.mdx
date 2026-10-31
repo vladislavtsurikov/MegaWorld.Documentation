@@ -1,0 +1,104 @@
+---
+title: "Terrain Spawner"
+description: "Spawn objects and terrain details inside a bounded area using filters, scatter, and prototype settings"
+---
+
+Terrain Spawner is a MonoBehaviour stamper tool for procedural placement inside a defined area. You position and scale the stamper in the scene, then MegaWorld evaluates each active Group and fills the area with prototypes that pass your filters.
+
+<Info>
+  New to Terrain Spawner? Follow the step-by-step [Terrain Spawner — Getting Started](/megaworld/getting-started/terrain-spawner) tutorial first.
+</Info>
+
+## Supported resource types
+
+<CardGroup cols={2}>
+  <Card title="Terrain Object" href="/megaworld/resource-types/terrain-object" />
+  <Card title="Unity/GameObject" href="/megaworld/resource-types/unity-gameobject" />
+  <Card title="Unity/Terrain Detail" href="/megaworld/resource-types/unity-terrain-detail" />
+</CardGroup>
+
+## How it works
+
+When you click **Spawn**, Terrain Spawner processes each active Group in order:
+
+1. Casts a ray downward from the stamper's position to find the surface.
+2. Builds the box area from the result.
+3. Depending on the Group's resource type, runs the appropriate spawn routine for that area.
+
+### Unity/GameObject and Terrain Object groups
+
+For object-based groups, the spawner:
+
+1. Generates a random seed if needed.
+2. Runs the scatter system over the box area to produce sample positions.
+3. For each sample, casts a ray downward to find the surface hit point.
+4. Selects a random prototype weighted by Success Settings.
+5. Evaluates filter fitness (Mask Filter or Simple Filter) at the hit point.
+6. Discards the sample with probability `1 − fitness`. Samples with `fitness = 0` are always skipped.
+7. Calls the shared spawn routine which applies [Transform Components](/megaworld/transform-components/overview) and [Overlap Check Settings](/megaworld/overlap-check-settings/overview).
+
+### Unity/Terrain Detail groups
+
+For terrain detail groups, the spawner iterates over every active Unity Terrain that intersects the stamper bounds. For each terrain and each active detail prototype, it:
+
+1. Converts the box area into detail-map coordinates.
+2. Reads the existing detail layer.
+3. For each detail cell in the area, evaluates the Mask Filter fitness.
+4. Computes a target density:
+   - If **Use Random Opacity** is enabled: multiplies fitness by a random value before scaling to the density range.
+   - Otherwise: scales fitness directly to the density range.
+5. Applies a random failure check using **Failure Rate**.
+6. Writes the result back to the terrain detail layer.
+
+<Note>
+  For Terrain Detail, Terrain Spawner requires that the terrain's detail prototypes are already configured in Unity's Terrain Inspector. If no detail prototypes exist on the terrain, the spawner logs a warning and skips that terrain.
+</Note>
+
+## Shared systems
+
+### Per-group settings (Terrain Object and Unity/GameObject)
+
+- [Random Seed Settings](/megaworld/shared-settings/random-seed-settings)
+- [Scatter Settings](/megaworld/scatter-system/overview)
+- [Filter Settings](/megaworld/mask-filters/overview)
+
+### Per-prototype settings (Terrain Object and Unity/GameObject)
+
+- Success Settings
+- [Overlap Check Settings](/megaworld/overlap-check-settings/overview)
+- [Transform Components](/megaworld/transform-components/overview)
+
+### Per-prototype settings (Unity/Terrain Detail)
+
+- [Spawn Detail Settings](/megaworld/general-settings/spawn-detail-settings) — controls detail density, opacity, and failure rate
+- [Mask Filters](/megaworld/mask-filters/overview)
+
+### Tool-level settings
+
+- [Area](/megaworld/shared-settings/area-settings) — defines the stamper volume and bounds.
+- [Stamper Tool Controller](/megaworld/shared-settings/stamper-tool-controller) — controls visualization and auto respawn.
+- [Layer Settings](/megaworld/shared-settings/layer-settings) — specifies which physics layers are used for raycasts.
+
+## Auto Respawn behavior
+
+When **Auto Respawn** is on in the Stamper Tool Controller:
+
+- Changing any Group setting triggers a full respawn of that Group after the configured delay.
+- Changing a **Terrain Detail** prototype setting triggers a respawn of only that specific detail prototype on the terrain, not the entire Group.
+- Changing a non-detail prototype setting triggers a full Group respawn.
+
+## When to use Terrain Spawner
+
+Terrain Spawner is best when you want:
+
+- a one-shot generation pass over a large area;
+- a forest, rock field, or vegetation layout based on filters and scatter rules;
+- terrain detail density passes (grass, mesh details) inside a selected zone;
+- a workflow where the result is tied to a scene object rather than painted manually.
+
+## Notes
+
+- Terrain Spawner does not support Unity/Terrain Texture. Use [Texture Stamper](/megaworld/tools/texture-stamper) for terrain texture passes.
+- For object-based groups, the scatter system generates a random seed before each pass when **Random Seed** is set to auto-generate.
+- For very large areas with Terrain Detail groups, consider splitting the stamper area or using multiple spawners to keep the operation manageable.
+- Types (Groups) configured in Terrain Spawner are reusable assets. The same Group can be added to Advanced Brush and used for manual painting with the same filter and scatter rules.

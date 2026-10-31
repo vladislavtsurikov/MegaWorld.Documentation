@@ -1,0 +1,73 @@
+---
+sidebarTitle: "Getting Started"
+title: "Brush Modify — Getting Started"
+description: "Modify the transform of already-placed objects using a brush and a stack of transform components."
+---
+
+<Info>
+  Before starting this tutorial, read:
+  - [Working with Data](/megaworld/getting-started/working-with-data) — Groups, Resource Types, and Prototypes
+  - [Working with MegaWorld Window](/megaworld/getting-started/megaworld-window) — how to navigate the window
+</Info>
+
+The **Brush Modify** tool changes the position, rotation, and scale of objects that already exist in the scene. It does not place or remove objects. As you drag the brush, it overlaps existing objects, evaluates filter fitness and brush mask alpha, then runs each active component in the **Modify Transform Components** stack. Changes accumulate each frame while the brush moves over an object.
+
+---
+
+## Step 1 — Open the MegaWorld Window and select Brush Modify
+
+Press **Alt + Z** to open the MegaWorld Window. In the **Tools Panel**, click the **+** button and choose **Brush Modify**.
+
+---
+
+## Step 2 — Select which prototypes to modify
+
+In the **Selection Panel**, choose the group and enable the prototypes you want the brush to affect. Objects that belong to inactive or unselected prototypes are ignored.
+
+---
+
+## Step 3 — Add components to the Modify Transform stack
+
+In the **Settings Panel**, find the **Modify Transform Components** section. The stack starts with a **Randomize Scale** component by default. Click **+** to add more components:
+
+- **Position** — moves objects up or down along the Y axis while you drag.
+- **Rotation** — incrementally rotates objects on each frame. Each axis can be set to random or fixed direction.
+- **Vegetation Rotation** — tilts and spins objects like trees. Useful for adding natural lean.
+- **Along** — rotates objects to face perpendicular to your stroke direction as you drag.
+- **Randomize Scale** — snaps each object to a new random scale within a defined range on each frame it is touched.
+- **Scale** — incrementally grows or shrinks objects while you drag.
+- **Scale Clamp** — enforces a min/max scale limit. Add this after **Scale** to prevent runaway scaling.
+
+Components are applied in order from top to bottom. You can reorder them by dragging.
+
+---
+
+## Step 4 — Optionally add filters
+
+Each group has a **Filter Settings** section. Add a Simple Filter or Mask Filter to restrict which objects get modified. Objects that fail the filter receive zero fitness and are skipped by the transform stack.
+
+For example, a slope filter ensures the brush only modifies objects on slopes within the specified range.
+
+---
+
+## Step 5 — Adjust brush size
+
+Set **Brush Size** in the **Settings Panel** to control the modification area. Use **Shift + Scroll Wheel** in the Scene View to adjust quickly.
+
+---
+
+## Step 6 — Paint in the Scene View
+
+Move your cursor into the **Scene View** and drag the brush over existing objects. Each frame of the drag, the tool overlaps objects in the brush area, evaluates fitness, and applies the active components in the stack to those objects.
+
+<Note>
+  Each object's random values (used by Position, Rotation, and Scale components) are assigned the first time the brush contacts the object during a stroke. They reset when you release the mouse and start a new stroke. This means repeated passes add variation rather than applying the same offset every time.
+</Note>
+
+---
+
+## What's next
+
+- Use [Edit](/megaworld/getting-started/edit) for precise single-object transform adjustments.
+- Use [Brush Erase](/megaworld/getting-started/brush-erase) to remove objects from over-populated areas.
+- Read the full [Brush Modify](/megaworld/tools/brush-modify) reference documentation.

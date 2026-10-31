@@ -1,0 +1,71 @@
+---
+title: "Tools overview"
+description: "Understand the two MegaWorld tool types and browse all available tools"
+---
+
+MegaWorld tools are split into two types: **MonoBehavior tools**, which attach to GameObjects in your scene, and **Editor Window tools**, which run inside a dedicated editor panel and interact through the Scene View.
+
+## MonoBehavior tools
+
+A MonoBehavior tool is attached to a **GameObject** in your scene and appears in the **Inspector** when that object is selected. Open them from Unity's top menu under `GameObject > Vladislav Tsurikov` — each entry creates a GameObject with the component already attached.
+
+<CardGroup cols={2}>
+  <Card title="Advanced Object Stamper" icon="tree" href="/megaworld/tools/advanced-object-stamper">
+    Spawn GameObjects, Terrain Objects, and Unity Terrain Trees across an area with a single click.
+  </Card>
+  <Card title="Grass Stamper" icon="seedling" href="/megaworld/tools/grass-stamper">
+    Fill terrain detail layers — grass, flowers, mesh details — across a large area.
+  </Card>
+  <Card title="Texture Stamper" icon="paintbrush" href="/megaworld/tools/texture-stamper">
+    Paint terrain textures driven by height, slope, and noise filters.
+  </Card>
+  <Card title="Gravity Spawner" icon="arrow-down" href="/megaworld/tools/gravity-spawner">
+    Spawn objects and let physics settle them naturally on the terrain.
+  </Card>
+</CardGroup>
+
+## Editor Window tools
+
+An Editor Window tool works inside the **MegaWorld Window** and interacts with the scene through clicks, brushes, or handles. Open the window from `Window > Vladislav Tsurikov > Mega World > Window` or press `Alt + Z`, then click the **+** button in the Tools Panel to add the tool you need.
+
+<CardGroup cols={3}>
+  <Card title="Advanced Object Brush" icon="brush" href="/megaworld/tools/advanced-object-brush">
+    Paint GameObjects, Terrain Objects, and Unity Terrain Trees interactively in the scene view.
+  </Card>
+  <Card title="Grass Brush" icon="leaf" href="/megaworld/tools/grass-brush">
+    Paint grass and terrain detail layers interactively in the scene view.
+  </Card>
+  <Card title="Texture Brush" icon="palette" href="/megaworld/tools/texture-brush">
+    Paint terrain texture layers interactively with strength control.
+  </Card>
+  <Card title="Spray Brush" icon="spray-can" href="/megaworld/tools/spray-brush">
+    Rapidly spray objects across an area.
+  </Card>
+  <Card title="Brush Erase" icon="eraser" href="/megaworld/tools/brush-erase">
+    Remove spawned objects with a brush.
+  </Card>
+  <Card title="Brush Modify" icon="sliders" href="/megaworld/tools/brush-modify">
+    Nudge, rotate, and reshape existing placed objects.
+  </Card>
+  <Card title="Edit" icon="pencil" href="/megaworld/tools/edit">
+    Move, rotate, scale, or remove individual objects.
+  </Card>
+  <Card title="Precise Place" icon="crosshairs" href="/megaworld/tools/precise-place">
+    Place individual objects one at a time with exact control.
+  </Card>
+  <Card title="Pin" icon="thumbtack" href="/megaworld/tools/pin">
+    Lock objects to protect them from brush operations.
+  </Card>
+  <Card title="Brush Physics" icon="atom" href="/megaworld/tools/brush-physics">
+    Settle objects onto surfaces using a physics brush.
+  </Card>
+  <Card title="Precise Physics" icon="bullseye" href="/megaworld/tools/precise-physics">
+    Run targeted physics simulation on selected objects.
+  </Card>
+  <Card title="Explode Physics" icon="explosion" href="/megaworld/tools/explode-physics">
+    Scatter objects with a radial physics impulse.
+  </Card>
+  <Card title="Physics Effects" icon="bolt" href="/megaworld/tools/physics-effects">
+    Apply ongoing physics forces to objects in the scene.
+  </Card>
+</CardGroup>

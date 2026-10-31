@@ -1,0 +1,60 @@
+---
+sidebarTitle: "Getting Started"
+title: "Spray Brush — Getting Started"
+description: "Paint objects into the scene one at a time using a brush with simple filters and overlap checking."
+---
+
+<Info>
+  Before starting this tutorial, read:
+  - [Working with Data](/megaworld/getting-started/working-with-data) — Groups, Resource Types, and Prototypes
+  - [Working with MegaWorld Window](/megaworld/getting-started/megaworld-window) — how to navigate the window
+</Info>
+
+The **Spray Brush** places one object per stroke tick at a random offset within the brush radius. Each tick it picks a random point inside the brush, raycasts to the surface, checks the Simple Filter, and places a single object if all checks pass and there is no overlap. The tool is useful for fast manual scatter without setting up a full procedural system.
+
+---
+
+## Step 1 — Open the MegaWorld Window and select Spray Brush
+
+Press **Alt + Z** to open the MegaWorld Window. In the **Tools Panel**, click the **+** button and choose **Spray Brush**.
+
+---
+
+## Step 2 — Add a group and prototypes
+
+In the **Selection Panel**, click **Add Type** and choose **Terrain Object**, **Unity/GameObject**, or **Unity/Terrain Tree**. Inside the group, click **Add Resource** and add the prefabs you want to place.
+
+<Note>
+  Spray Brush does not support Unity/Terrain Detail or terrain textures. Use **Advanced Brush** for those resource types.
+</Note>
+
+---
+
+## Step 3 — Set brush size and spacing
+
+In the **Settings Panel**:
+
+- **Brush Size** — the diameter of the area within which each random placement point is chosen. Use **Shift + Scroll Wheel** in the Scene View to adjust quickly.
+- **Spacing** — how far the cursor must move before the tool fires another placement attempt. Lower values place more objects per drag stroke.
+
+---
+
+## Step 4 — Optionally configure filters and overlap checking
+
+Each group has a **Simple Filter Settings** section. Enable **Check Height** or **Check Slope** to restrict placement to terrain within a height or slope range. Placement attempts that fall outside the filter return zero fitness and are skipped.
+
+Each prototype has an **Overlap Check Settings** section. This prevents new objects from being placed too close to existing ones.
+
+---
+
+## Step 5 — Paint in the Scene View
+
+Move your cursor into the **Scene View** and click or drag. On each stroke tick the tool picks one random offset within the brush, raycasts to the surface, evaluates the filter, selects a prototype by weighted success, applies the transform stack, runs the overlap check, and places the object if all steps pass.
+
+---
+
+## What's next
+
+- Use [Brush Erase](/megaworld/getting-started/brush-erase) to remove overpainted objects.
+- Use [Brush Modify](/megaworld/getting-started/brush-modify) to adjust scale or rotation on already-placed objects.
+- Read the full [Spray Brush](/megaworld/tools/spray-brush) reference documentation.

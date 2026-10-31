@@ -1,0 +1,44 @@
+---
+title: "Unity/Terrain Texture"
+description: "Paint terrain texture layers on Unity Terrain using MegaWorld's filter and stamping tools"
+---
+
+**Unity/Terrain Texture** is MegaWorld's resource kind for Unity Terrain texture layers. It lets you paint or stamp terrain texture data using the full mask filter stack.
+
+## What it places
+
+Terrain texture weight data on a Unity Terrain. Each prototype corresponds to one **TerrainLayer** asset registered in the terrain. MegaWorld writes into the terrain's alphamap to control which texture appears where and how strongly.
+
+## Prototype settings
+
+Each Unity/Terrain Texture prototype holds a single **Terrain Layer** reference — a Unity `TerrainLayer` asset that defines the texture's visual properties:
+
+| Property | Description |
+|---|---|
+| Diffuse Texture | The main albedo texture for this layer |
+| Normal Map | Optional normal map texture |
+| Tile Size | How the texture tiles across the terrain |
+| Tile Offset | Offset for the tiling pattern |
+| Smoothness | Surface smoothness |
+| Metallic | Metallic intensity |
+| Specular | Specular color |
+
+These properties are part of the Unity TerrainLayer asset and can be edited through MegaWorld's prototype inspector.
+
+## Resources Controller
+
+Unity/Terrain Texture prototypes must match the terrain layers registered in the Unity Terrain asset. MegaWorld provides **Resources Controller** actions in the prototype inspector:
+
+- **Get/Update Resources From Terrain** — reads terrain layers from the active terrain and updates the MegaWorld Type.
+- **Add Missing Resources** — adds missing MegaWorld texture prototypes to the active terrains.
+- **Remove All Resources** — removes terrain texture resources for this resource type from the active terrains after confirmation.
+
+If a terrain layer is missing or the list does not match the terrain, MegaWorld shows a sync error on the affected prototype.
+
+<Note>
+  A Unity Terrain must be present in the scene. The TerrainLayer assets must be registered in the terrain before MegaWorld can use them.
+</Note>
+
+<Note>
+  Use Get/Update Resources From Terrain after adding new terrain layers to your Unity Terrain asset to keep the MegaWorld list in sync.
+</Note>

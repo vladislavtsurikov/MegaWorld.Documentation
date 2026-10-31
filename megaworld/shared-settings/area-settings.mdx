@@ -1,0 +1,62 @@
+---
+title: "Area"
+description: "Define the scene-space volume used by stamper tools."
+---
+
+The stamper area defines the scene-space volume used by stamper tools — [Advanced Object Stamper](/megaworld/tools/advanced-object-stamper), [Grass Stamper](/megaworld/tools/grass-stamper), and [Gravity Spawner](/megaworld/tools/gravity-spawner). The area determines where spawning happens. You can move, resize, and configure it directly in the scene view.
+
+<img
+  style={{ borderRadius: '0.5rem', width: '100%', maxWidth: '960px' }}
+  src="/images/megaworld/shared-settings/area-settings/area-overview.png"
+  alt="Area Settings overview in the scene view."
+/>
+
+---
+
+## Area controls
+
+**Fit To Terrain Size** — resizes the area to exactly match the bounds of your Unity Terrain (or multiple terrains). Use this as a first step when you want to cover the whole terrain in one spawn pass.
+
+<img
+  style={{ borderRadius: '0.5rem', width: '100%', maxWidth: '960px' }}
+  src="/images/megaworld/shared-settings/area-settings/fit-to-terrain.png"
+  alt="Fit To Terrain Size button and result."
+/>
+
+---
+
+## Handle Settings
+
+Handle Settings control how the stamper area box is drawn in the scene view.
+
+**Handle Settings Mode** — switches between display modes for the area box.
+
+**Color Cube** — the color of the area box wireframe.
+
+**Pixel Width** — the line thickness of the area box in pixels.
+
+**Dotted** — draws the area box edges as dashed segments instead of solid lines.
+
+**Draw Handle If Not Selected** — when enabled, the area box and visualization remain visible even when the stamper GameObject is not selected in the Hierarchy. This is useful when you want to compare two stampers side by side, or monitor visualization output without keeping the Inspector focused on the stamper.
+
+<img
+  style={{ borderRadius: '0.5rem', width: '100%', maxWidth: '960px' }}
+  src="/images/megaworld/shared-settings/area-settings/handle-settings.png"
+  alt="Handle Settings for the area display."
+/>
+
+<img
+  style={{ borderRadius: '0.5rem', width: '100%', maxWidth: '960px', marginTop: '1rem' }}
+  src="/images/megaworld/shared-settings/area-settings/draw-handle-if-not-selected.png"
+  alt="Both stampers showing visualization with Draw Handle If Not Selected enabled."
+/>
+
+In the screenshot above, neither stamper is selected, but both area boxes and their visualizations are still visible because **Draw Handle If Not Selected** is active.
+
+---
+
+## Tips
+
+<Note>
+  Use **Draw Handle If Not Selected** together with **Enable Visualization** on the Stamper Tool Controller to monitor filter coverage while adjusting settings in other components or windows.
+</Note>

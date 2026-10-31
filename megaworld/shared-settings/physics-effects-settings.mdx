@@ -1,0 +1,20 @@
+---
+title: "Physics Effects Settings"
+description: "Configure force magnitude and direction randomness applied by PhysX Painter tools"
+---
+
+Physics Effects Settings define how force is applied to scene objects during physics interactions.
+
+They are shared across PhysX Painter tools that push, attract, or lift existing objects.
+
+## Force
+
+Controls the strength of the effect.
+
+- **Force Range** — when enabled, MegaWorld picks a random force value between **Min Force** and **Max Force** for each affected object. Enabled by default.
+- **Min Force** — the lower bound of the force range. When **Force Range** is disabled, this value is used as the fixed force.
+- **Max Force** — the upper bound of the force range.
+
+## Direction
+
+- **Random Strength** — controls the direction of the applied force as a lerp between straight down `(0, -1, 0)` and a random horizontal direction. At `0` the force points directly downward. At `100` the force points in a fully random horizontal direction. Values in between blend the two. Default is `50`.

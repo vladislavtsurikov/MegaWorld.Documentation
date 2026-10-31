@@ -1,0 +1,134 @@
+---
+sidebarTitle: "MegaWorld Window"
+title: "Working with MegaWorld Window"
+description: "Learn how to open the MegaWorld Window and work with the Tools Panel, Selection Panel, and Settings Panel."
+---
+
+<Info>
+  Before reading this page, make sure you understand [Working with Data](/megaworld/getting-started/working-with-data) — Groups, Resource Types, and Prototypes.
+</Info>
+
+The **MegaWorld Window** is the main hub for all Editor Window tools. It is divided into three panels that guide you from tool selection to scene interaction.
+
+---
+
+## Opening the window
+
+Open the window from the Unity menu:
+
+```
+Window > Vladislav Tsurikov > Mega World > Window
+```
+
+Or use the shortcut **Alt + Z**.
+
+For a split layout where each panel floats independently, use **Alt + X** (or `Window > Vladislav Tsurikov > Mega World > Separate Windows`).
+
+<img
+  style={{ borderRadius: '0.5rem', width: '100%', maxWidth: '960px' }}
+  src="/images/megaworld/window-workflow/main-window-layout.png"
+  alt="MegaWorld main window layout."
+/>
+
+<img
+  style={{ borderRadius: '0.5rem', width: '100%', maxWidth: '428px', marginTop: '1rem' }}
+  src="/images/megaworld/window-workflow/separate-windows-layout.png"
+  alt="MegaWorld separate windows layout."
+/>
+
+The interface is built around three core panels that you work through in order:
+
+1. **Tools Panel** — choose the active tool.
+2. **Selection Panel** — choose what the tool works with.
+3. **Settings Panel** — configure settings for that tool and those prototypes.
+
+---
+
+## Tools Panel
+
+The Tools Panel lets you choose which MegaWorld tool you want to work with.
+
+<img
+  style={{ borderRadius: '0.5rem', width: '100%', maxWidth: '522px' }}
+  src="/images/megaworld/window-workflow/tools-panel.png"
+  alt="MegaWorld Tools panel."
+/>
+
+### Managing tools
+
+- Select a tool to make it active.
+- Right-click a tool to remove it from the current layout.
+- Reorder tools when you want frequently used tools closer together.
+- Use the separate windows layout if you want the tool list in its own window.
+
+<img
+  style={{ borderRadius: '0.5rem', width: '100%', maxWidth: '512px' }}
+  src="/images/megaworld/window-workflow/tools-panel-delete.png"
+  alt="Deleting a tool from the MegaWorld Tools panel."
+/>
+
+<img
+  style={{ borderRadius: '0.5rem', width: '100%', maxWidth: '524px', marginTop: '1rem' }}
+  src="/images/megaworld/window-workflow/tools-panel-add.png"
+  alt="Adding tools back to the MegaWorld Tools panel."
+/>
+
+<img
+  style={{ borderRadius: '0.5rem', width: '100%', maxWidth: '520px', marginTop: '1rem' }}
+  src="/images/megaworld/window-workflow/tools-panel-reorder.gif"
+  alt="Reordering tools in the MegaWorld Tools panel."
+/>
+
+<Note>
+  Keep your most-used tools visible and remove the rest temporarily. MegaWorld gets easier to navigate when the tool list matches your actual workflow.
+</Note>
+
+---
+
+## Selection Panel
+
+The Selection Panel controls what the active tool works with — which Groups and Prototypes are active for the current operation.
+
+<img
+  style={{ borderRadius: '0.5rem', width: '100%', maxWidth: '524px' }}
+  src="/images/megaworld/window-workflow/selection-panel.png"
+  alt="MegaWorld Selection panel."
+/>
+
+For a full explanation of Groups, Resource Types, and Prototypes — including how to create them, reorder them, copy settings, and toggle Active state — see [Working with Data](/megaworld/getting-started/working-with-data).
+
+---
+
+## Settings Panel
+
+The Settings Panel shows everything relevant to the currently active tool and selected data. It is divided into four foldout sections that appear depending on what the active tool supports.
+
+### Tool Settings
+
+Controls how the tool itself behaves — for example brush size, density, painting mode, or stamper area. These settings are global to the tool and apply regardless of which Group or Prototype is selected.
+
+### Group Settings
+
+Settings that apply to the currently selected Group. Only visible when exactly one Group is selected. Many of these settings are shared across multiple tools — the same Group carries its configuration regardless of which tool is currently active.
+
+### Prototype Settings
+
+Settings that apply to the currently selected Prototype. Only visible when exactly one Prototype is selected. Like Group Settings, these are not exclusive to a single tool — a Prototype's transform rules, filters, and overlap checks are shared and remain consistent whichever tool uses that Prototype.
+
+### Common Settings
+
+Settings that are not tied to any specific tool, Group, or Prototype. They sit at a level above all of them — changes here can affect the behaviour of multiple tools at once and persist independently of what is selected.
+
+---
+
+## Hotkeys
+
+| Shortcut | Action |
+|---|---|
+| `Alt + Z` | Open the main MegaWorld window |
+| `Alt + X` | Open the separate windows layout |
+| `Ctrl + Backspace` | Remove all spawned data from selected prototypes |
+
+<Warning>
+  `Ctrl + Backspace` is destructive. Make sure the correct prototypes are selected before using it.
+</Warning>

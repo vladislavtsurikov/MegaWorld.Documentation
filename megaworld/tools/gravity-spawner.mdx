@@ -1,0 +1,82 @@
+---
+title: "Gravity Spawner"
+description: "Spawn objects above a stamper area, simulate physics, and keep them where they land"
+---
+
+Gravity Spawner is a MonoBehaviour stamper tool that scatters objects inside a defined area, spawns each one 30 units above its hit point, runs a physics simulation, and keeps the final settled placement.
+
+<Info>
+  New to Gravity Spawner? Follow the step-by-step [Gravity Spawner — Getting Started](/megaworld/getting-started/gravity-spawner) tutorial first.
+</Info>
+
+## Supported resource types
+
+<CardGroup cols={2}>
+  <Card title="Terrain Object" href="/megaworld/resource-types/terrain-object" />
+  <Card title="Unity/GameObject" href="/megaworld/resource-types/unity-gameobject" />
+</CardGroup>
+
+## How it works
+
+When you click **Spawn**, Gravity Spawner processes each active group in order:
+
+1. Casts a ray downward from the stamper's position to find the surface.
+2. Runs the scatter system over the resulting box area to generate sample positions.
+3. For each sample, casts another ray downward to find the exact hit point.
+4. Evaluates filter fitness at the hit point (Mask Filter or Simple Filter).
+5. Discards the sample with probability `1 − fitness`. Samples that have `fitness = 0` are always skipped.
+6. Spawns the object 30 units above the hit point with the transform adjustments from Physics Transform Settings applied.
+7. Applies a force to the object's Rigidbody using the Physics Effects settings.
+8. Waits until all simulated bodies in `SimulatedBodyStack` have settled (count reaches zero).
+9. After physics finishes, checks each body's final position. If the final position falls outside the stamper area bounds, the object is destroyed. Then evaluates filter fitness at the final position and destroys the object with probability `1 − fitness`.
+
+If you cancel the spawn, Gravity Spawner destroys any temporary GameObjects that were created for Terrain Object prototypes.
+
+## Shared systems
+
+### Per-group settings (Terrain Object and Unity/GameObject)
+
+- [Random Seed Settings](/megaworld/shared-settings/random-seed-settings)
+- [Scatter Settings](/megaworld/scatter-system/overview)
+- [Filter Settings](/megaworld/mask-filters/overview)
+
+### Per-prototype settings
+
+- [Physics Transform Settings](/megaworld/shared-settings/physics-transform-settings)
+- Success Settings
+
+### Tool-level settings
+
+- [Area](/megaworld/shared-settings/area-settings) — defines the stamper volume and bounds.
+- [Stamper Tool Controller](/megaworld/shared-settings/stamper-tool-controller) — controls visualization and auto respawn.
+- [Physics Effects Settings](/megaworld/shared-settings/physics-effects-settings) — controls the force applied to each spawned body.
+- [Layer Settings](/megaworld/shared-settings/layer-settings) — specifies which physics layers are used for raycasts.
+
+## Physics Effects settings
+
+These fields exist on the `PhysicsEffects` component and control the impulse applied to each spawned Rigidbody immediately after instantiation.
+
+| Setting | Description | Default |
+|---|---|---|
+| **Force Range** | When enabled, the force magnitude is chosen randomly between **Min Force** and **Max Force** on each spawn. When disabled, **Min Force** is always used. | `true` |
+| **Min Force** | Minimum force magnitude applied to each body. | `10` |
+| **Max Force** | Maximum force magnitude applied to each body. Only used when **Force Range** is enabled. | `40` |
+| **Random Strength** | Controls the direction of the applied force. At `0` the force is always straight down. At `100` the force direction is fully horizontal in a random direction. Values in between blend between downward and horizontal. | `50` |
+
+## Physics simulation behavior
+
+Gravity Spawner uses `UseAccelerationPhysics = true` and `ObjectTimeDisablePhysicsMode`, which means the physics simulator runs in accelerated time and stops simulating each body after a fixed duration rather than waiting for it to come to rest. The tool waits in a loop until `SimulatedBodyStack.Count` reaches zero before reporting the pass as complete.
+
+## When to use Gravity Spawner
+
+Gravity Spawner is best when you want:
+
+- objects to settle naturally against terrain or other colliders;
+- rocks, debris, or props that should feel physically dropped rather than placed by rule;
+- organic variation from physics rather than transform randomization alone.
+
+## Notes
+
+- Prefabs used with Gravity Spawner must have Collider components. Without a Collider, objects fall through surfaces during the simulation.
+- Gravity Spawner does not support Terrain Texture or Terrain Detail resource types.
+- Auto Respawn triggers a full re-spawn including the physics simulation pass.

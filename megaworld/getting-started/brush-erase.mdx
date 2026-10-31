@@ -1,0 +1,63 @@
+---
+sidebarTitle: "Getting Started"
+title: "Brush Erase — Getting Started"
+description: "Remove placed objects, Unity Terrain Trees, and terrain details from the scene using a brush."
+---
+
+<Info>
+  Before starting this tutorial, read:
+  - [Working with Data](/megaworld/getting-started/working-with-data) — Groups, Resource Types, and Prototypes
+  - [Working with MegaWorld Window](/megaworld/getting-started/megaworld-window) — how to navigate the window
+</Info>
+
+The **Brush Erase** tool removes already-placed objects, Unity Terrain Trees, and terrain details from the scene using a brush. It does not erase uniformly — each resource passes through a probability check based on brush mask alpha, filter fitness, Erase Strength, and a per-prototype success value. This lets you erase softly or leave some resources in place by chance.
+
+---
+
+## Step 1 — Open the MegaWorld Window and select Brush Erase
+
+Press **Alt + Z** to open the MegaWorld Window. In the **Tools Panel**, click the **+** button and choose **Brush Erase**.
+
+---
+
+## Step 2 — Select the prototypes you want to erase
+
+In the **Selection Panel**, select a **Terrain Object**, **Unity/GameObject**, **Unity/Terrain Tree**, or **Unity/Terrain Detail** group and enable the prototypes you want to remove. Only selected and active prototypes are affected. Uncheck a prototype to protect it from erasure without removing it from the list.
+
+---
+
+## Step 3 — Adjust brush size and erase strength
+
+In the **Settings Panel**:
+
+- Set **Brush Size** to control the erase diameter. You can also hold **Shift** and scroll the mouse wheel in the Scene View.
+- Set **Erase Strength** (range `0` to `1`) to control the overall erase probability. At `1`, objects are erased based on filter fitness and brush mask alone. Lower values reduce how many objects are removed on each pass.
+
+---
+
+## Step 4 — Optionally restrict erasure with filters
+
+In the group's **Filter Settings**, you can enable **Simple Filter** or **Mask Filter** to limit which objects are eligible for erasure. For example, a slope filter restricts erasure to objects on slopes within a defined angle range — objects on other terrain are skipped.
+
+For **Terrain Detail** groups, the Mask Filter modulates detail density reduction across the brush area rather than filtering discrete objects.
+
+---
+
+## Step 5 — Optionally adjust per-prototype erase probability
+
+Each prototype has an **Additional Erase Settings** section with a **Success of Erase (%)** field. At `100` (the default), every object that passes the main check is erased. Lower this value to leave some objects in place randomly on each pass.
+
+---
+
+## Step 6 — Erase in the Scene View
+
+Move your cursor into the **Scene View** and click or drag to erase. The tool fires on mouse down and continues as you drag, respecting the brush **Spacing** setting.
+
+---
+
+## What's next
+
+- Use [Mask Filters](/megaworld/mask-filters/overview) to erase only within a specific height or slope range.
+- Use [Brush Modify](/megaworld/getting-started/brush-modify) if you want to adjust objects rather than delete them.
+- Use [Edit](/megaworld/getting-started/edit) to remove individual objects one by one.
+- Read the full [Brush Erase](/megaworld/tools/brush-erase) reference documentation.

@@ -1,0 +1,60 @@
+---
+sidebarTitle: "Getting Started"
+title: "Brush Physics — Getting Started"
+description: "Spawn physics-simulated objects with a brush and let them fall and settle onto the scene."
+---
+
+<Info>
+  Before starting this tutorial, read:
+  - [Working with Data](/megaworld/getting-started/working-with-data) — Groups, Resource Types, and Prototypes
+  - [Working with MegaWorld Window](/megaworld/getting-started/megaworld-window) — how to navigate the window
+</Info>
+
+**Brush Physics** is a PhysX Painter tool that spawns new objects above the surface and drops them using physics simulation. Each brush stroke uses the Scatter system to distribute sample points within the brush area, instantiates a prototype at each valid point raised by **Position Offset Y**, then lets physics run until the objects settle. This is different from the standard Advanced Brush: objects land where physics puts them, not where the scatter point is.
+
+---
+
+## Step 1 — Open the MegaWorld Window and select Brush Physics
+
+Press **Alt + Z** to open the MegaWorld Window. In the **Tools Panel**, click the **+** button and choose **PhysX Painter → Brush Physics**.
+
+---
+
+## Step 2 — Add a Group and prototypes
+
+In the **Selection Panel**, click **Add Group**. Inside the group, click **Add Resource** and choose **Unity/GameObject** or **Terrain Object**. Add the Prefabs you want to spawn.
+
+<Note>
+  Your Prefabs need Collider components so that the physics simulation can detect collisions with the terrain and other objects. Without colliders, objects will fall through the surface.
+</Note>
+
+---
+
+## Step 3 — Configure the tool settings
+
+In the **Settings Panel**, set:
+
+- **Brush Size** — the radius of the brush area where objects can land.
+- **Position Offset Y** — the height above the surface at which each object spawns before falling. The default is `30`. Increase this for a longer drop; decrease it if objects are landing with too much energy.
+- **Spacing** — the minimum brush movement before a new stroke fires.
+- **Physics Effects** — the initial impulse applied to each object at spawn. Leave the force low (or zero) for a simple vertical drop.
+
+---
+
+## Step 4 — Paint in the scene view
+
+Move your cursor into the **Scene View**. A brush preview shows the area. Click and drag to paint — objects spawn above the brush area and fall onto the surface. They collide with the terrain and each other and freeze once physics settles.
+
+---
+
+## Step 5 — Undo if needed
+
+Press **Ctrl + Z** to undo. A full drag stroke is undone in one step after you release the mouse.
+
+---
+
+## What's next
+
+- Use [Precise Physics](/megaworld/getting-started/precise-physics) to drop individual objects at a specific point.
+- Use [Explode Physics](/megaworld/getting-started/explode-physics) to burst-spawn a group of objects with an outward force.
+- Read the full [Brush Physics](/megaworld/tools/brush-physics) reference documentation.

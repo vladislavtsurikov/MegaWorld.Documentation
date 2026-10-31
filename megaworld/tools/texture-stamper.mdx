@@ -1,0 +1,37 @@
+---
+title: "Texture Stamper"
+description: "Reference for all Texture Stamper settings and behavior"
+---
+
+<Info>
+  New to Texture Stamper? Start with the [Getting Started](/megaworld/getting-started/texture-stamper) tutorial first.
+</Info>
+
+## Supported resource type
+
+<CardGroup cols={2}>
+  <Card title="Unity/Terrain Texture" href="/megaworld/resource-types/unity-terrain-texture" />
+</CardGroup>
+
+## How it works
+
+When you click **Stamp**, the tool finds all Unity Terrain tiles that intersect the stamper bounds. For each Group × terrain tile intersection it builds a `BoxArea` and evaluates the Mask Filter stack of every active prototype, writing the result directly to the terrain's alphamap. Multiple terrain tiles are processed in sequence automatically — no manual cell configuration is required.
+
+## Buttons
+
+| Button | When visible | Action |
+|---|---|---|
+| **Fit To Terrain Size** | Always (except during spawning with Auto Respawn off) | Expands the stamper bounds to cover all active terrains in the scene. |
+| **Stamp** | Not currently spawning | Runs the full texture stamp pass. |
+| **Cancel** | Currently spawning, Auto Respawn off | Cancels the in-progress stamp. |
+
+## Per-prototype settings
+
+Each prototype has:
+
+- [Mask Filter Settings](/megaworld/mask-filters/overview) — defines where and at what strength the texture is painted. The filter stack can include terrain filters (slope, height, aspect), procedural filters (noise, image), area masks, and operators such as Remap.
+
+## Tool-level settings
+
+- [Area](/megaworld/shared-settings/area-settings) — defines the stamper volume and bounds.
+- [Stamper Tool Controller](/megaworld/shared-settings/stamper-tool-controller) — controls visualization and auto respawn.

@@ -1,0 +1,86 @@
+---
+sidebarTitle: "Getting Started"
+title: "Texture Stamper — Getting Started"
+description: "Paint terrain textures across an area using the Texture Stamper."
+---
+
+<Info>
+  Before starting this tutorial, read [Working with Data](/megaworld/getting-started/working-with-data) to understand Groups, Resource Types, and Prototypes.
+</Info>
+
+This guide walks you through setting up a texture pass using the **Texture Stamper** tool and the **Unity/Terrain Texture** resource type. By the end you will have a working stamper that paints terrain textures driven by mask filters.
+
+## Before you begin
+
+You need:
+
+- A Unity project with MegaWorld installed.
+- A Unity Terrain in your scene.
+- TerrainLayer assets ready in your Project window. You can create them via `Create > TerrainLayer`.
+
+---
+
+## Step 1 — Create a Texture Stamper
+
+Go to `GameObject > Vladislav Tsurikov > Add Texture Stamper`.
+
+A new **Texture Stamper** object appears in your Hierarchy. Its Transform scale defaults to `(150, 150, 150)`. Scale it to cover the area you want to paint.
+
+---
+
+## Step 2 — Add a Group
+
+Select the Texture Stamper in the Hierarchy. In the **MegaWorld Window**, right-click in the Groups panel and choose **Create Group**.
+
+Select **Unity/Terrain Texture** as the resource type for the Group.
+
+---
+
+## Step 3 — Add Terrain Texture prototypes
+
+Inside the Group, click **Add Resource**. Drag your **TerrainLayer** assets from the Project window into the prototype list. Each TerrainLayer becomes its own prototype with independent filter settings.
+
+---
+
+## Step 4 — Configure Mask Filters
+
+Select a prototype and expand its **Mask Filters** settings. Mask Filters determine where and how strongly each texture is painted. Common setups:
+
+- **Slope filter** — paint rock textures on steep slopes and grass on flat ground.
+- **Height filter** — snow at high elevations, mud at low elevations.
+- **Noise filter** — add organic variation to texture boundaries.
+
+If you do not add any filters, the texture is painted uniformly across the full stamper area at full strength.
+
+---
+
+## Step 5 — Set the area
+
+The stamper area is controlled by the Transform scale of the Texture Stamper GameObject. Scale it in the Scene View to cover the terrain region you want to paint. Click **Fit To Terrain Size** to instantly expand the area to cover all terrains in the scene.
+
+---
+
+## Step 6 — Stamp
+
+Click **Stamp**. The Texture Stamper finds all Unity Terrain tiles that intersect the stamper bounds and evaluates each prototype's Mask Filters, writing the results directly to the terrain alphamap.
+
+To preview filter coverage before stamping, enable **Visualisation** in the Stamper Tool Controller. The Scene View shows green (will paint) and red (will not paint) areas for the selected Group.
+
+---
+
+## Step 7 — (Optional) Enable Auto Respawn
+
+Turn on **Auto Respawn** in the Stamper Tool Controller to automatically re-stamp every time you change a filter setting. Use **Delay Auto Respawn** to add a short wait before each re-stamp triggers so it does not run on every keystroke.
+
+<Tip>
+  Work with a small area while tuning settings — a smaller area re-stamps much faster. Once the result looks right, click **Fit To Terrain Size** for the final pass.
+</Tip>
+
+---
+
+## What's next
+
+- Add multiple Groups to layer different textures across the same terrain area.
+- Use [Grass Stamper](/megaworld/getting-started/grass-stamper) to fill the terrain with grass on top of the painted texture layers.
+- Use [Texture Brush](/megaworld/getting-started/texture-brush) to hand-paint textures in specific spots.
+- Read the full [Texture Stamper](/megaworld/tools/texture-stamper) reference for all settings.

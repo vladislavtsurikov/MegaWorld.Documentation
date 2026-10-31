@@ -1,0 +1,61 @@
+---
+sidebarTitle: "Getting Started"
+title: "Edit — Getting Started"
+description: "Select and modify individual placed objects in the scene using action-based mouse controls."
+---
+
+<Info>
+  Before starting this tutorial, read:
+  - [Working with Data](/megaworld/getting-started/working-with-data) — Groups, Resource Types, and Prototypes
+  - [Working with MegaWorld Window](/megaworld/getting-started/megaworld-window) — how to navigate the window
+</Info>
+
+The **Edit** tool lets you select individual placed objects in the scene view and modify them one at a time. You choose an action — move, rotate, scale, raycast, or remove — then click a handle button that appears over each nearby eligible object. Use Edit when you need to correct or adjust specific objects after a brush or stamper pass.
+
+---
+
+## Step 1 — Open the MegaWorld Window and select Edit
+
+Press **Alt + Z** to open the MegaWorld Window. In the **Tools Panel**, click the **+** button and choose **Edit**.
+
+---
+
+## Step 2 — Select which prototypes Edit can interact with
+
+In the **Selection Panel**, choose the Groups and prototypes you want Edit to target. Edit only shows handle buttons for objects that belong to the currently selected prototypes.
+
+---
+
+## Step 3 — Choose an action
+
+In the **Settings Panel**, click the action tab you want to use, or press its shortcut key:
+
+| Action | Shortcut | What it does |
+|---|---|---|
+| **Move Up/Down** | `Q` | Moves the object along the world Y axis |
+| **Raycast** | `W` | Moves the object onto the surface under the cursor |
+| **Rotate** | `E` | Rotates the object around its Y axis |
+| **Scale** | `R` | Scales the object uniformly |
+| **Remove** | `T` | Deletes the object from the scene |
+
+Press **Space** to toggle between global and local transform space (affects Rotate).
+
+---
+
+## Step 4 — Click objects in the scene view
+
+Move the cursor over the scene. A handle button appears at every eligible object's position within range of the cursor. Click a button to apply the active action to that object.
+
+- For **Move Up/Down**, **Rotate**, and **Scale**: after clicking, keep the mouse button held and drag horizontally to apply the change. Release to confirm.
+- For **Raycast**: click the handle button to snap the object to the surface under the cursor.
+- For **Remove**: click the handle button to delete the object immediately.
+
+Each action supports undo.
+
+---
+
+## What's next
+
+- Use [Brush Modify](/megaworld/getting-started/brush-modify) to apply transform adjustments to many objects at once.
+- Use [Brush Erase](/megaworld/getting-started/brush-erase) for area-based removal.
+- Read the full [Edit](/megaworld/tools/edit) reference documentation.

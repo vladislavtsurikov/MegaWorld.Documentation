@@ -1,0 +1,369 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "MegaWorld Documentation",
+  "colors": {
+    "primary": "#3B82F6",
+    "light": "#60A5FA",
+    "dark": "#2563EB"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "MegaWorld",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "megaworld/overview",
+              "megaworld/tools/overview",
+              {
+                "group": "Get Started",
+                "pages": [
+                  "megaworld/get-started",
+                  "megaworld/getting-started/working-with-data",
+                  "megaworld/getting-started/megaworld-window"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Tools",
+            "pages": [
+              {
+                "group": "Advanced Object Stamper",
+                "pages": [
+                  "megaworld/tools/advanced-object-stamper-features",
+                  "megaworld/getting-started/advanced-object-stamper",
+                  "megaworld/tools/advanced-object-stamper"
+                ]
+              },
+              {
+                "group": "Grass Stamper",
+                "pages": [
+                  "megaworld/tools/grass-stamper-features",
+                  "megaworld/getting-started/grass-stamper",
+                  "megaworld/tools/grass-stamper"
+                ]
+              },
+              {
+                "group": "Texture Stamper",
+                "pages": [
+                  "megaworld/tools/texture-stamper-features",
+                  "megaworld/getting-started/texture-stamper",
+                  "megaworld/tools/texture-stamper"
+                ]
+              },
+              {
+                "group": "Gravity Spawner",
+                "pages": [
+                  "megaworld/getting-started/gravity-spawner",
+                  "megaworld/tools/gravity-spawner"
+                ]
+              },
+              {
+                "group": "Advanced Object Brush",
+                "pages": [
+                  "megaworld/tools/advanced-object-brush-features",
+                  "megaworld/getting-started/advanced-object-brush",
+                  "megaworld/tools/advanced-object-brush",
+                  "megaworld/tools/advanced-object-brush-hotkeys"
+                ]
+              },
+              {
+                "group": "Grass Brush",
+                "pages": [
+                  "megaworld/getting-started/grass-brush",
+                  "megaworld/tools/grass-brush"
+                ]
+              },
+              {
+                "group": "Texture Brush",
+                "pages": [
+                  "megaworld/getting-started/texture-brush",
+                  "megaworld/tools/texture-brush"
+                ]
+              },
+              {
+                "group": "Spray Brush",
+                "pages": [
+                  "megaworld/getting-started/spray-brush",
+                  "megaworld/tools/spray-brush"
+                ]
+              },
+              {
+                "group": "Brush Erase",
+                "pages": [
+                  "megaworld/getting-started/brush-erase",
+                  "megaworld/tools/brush-erase"
+                ]
+              },
+              {
+                "group": "Brush Physics",
+                "pages": [
+                  "megaworld/getting-started/brush-physics",
+                  "megaworld/tools/brush-physics"
+                ]
+              },
+              {
+                "group": "Precise Physics",
+                "pages": [
+                  "megaworld/getting-started/precise-physics",
+                  "megaworld/tools/precise-physics"
+                ]
+              },
+              {
+                "group": "Explode Physics",
+                "pages": [
+                  "megaworld/getting-started/explode-physics",
+                  "megaworld/tools/explode-physics"
+                ]
+              },
+              {
+                "group": "Physics Effects",
+                "pages": [
+                  "megaworld/getting-started/physics-effects",
+                  "megaworld/tools/physics-effects"
+                ]
+              },
+              {
+                "group": "Brush Modify",
+                "pages": [
+                  "megaworld/getting-started/brush-modify",
+                  "megaworld/tools/brush-modify",
+                  "megaworld/tools/brush-modify-hotkeys"
+                ]
+              },
+              {
+                "group": "Edit",
+                "pages": [
+                  "megaworld/getting-started/edit",
+                  "megaworld/tools/edit",
+                  "megaworld/tools/edit-hotkeys"
+                ]
+              },
+              {
+                "group": "Precise Place",
+                "pages": [
+                  "megaworld/getting-started/precise-place",
+                  "megaworld/tools/precise-place",
+                  "megaworld/tools/precise-place-hotkeys"
+                ]
+              },
+              {
+                "group": "Pin",
+                "pages": [
+                  "megaworld/getting-started/pin",
+                  "megaworld/tools/pin"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Shared Settings",
+            "pages": [
+              "megaworld/shared-settings/overview",
+              {
+                "group": "Spawn",
+                "pages": [
+                  "megaworld/general-settings/spawn-detail-settings",
+                  "megaworld/general-settings/terrain-detail-settings",
+                  "megaworld/general-settings/additional-spawn-settings",
+                  "megaworld/shared-settings/random-seed-settings",
+                  "megaworld/shared-settings/success"
+                ]
+              },
+              {
+                "group": "Area",
+                "pages": [
+                  "megaworld/shared-settings/area-settings",
+                  "megaworld/shared-settings/layer-settings",
+                  "megaworld/shared-settings/brush-settings"
+                ]
+              },
+              {
+                "group": "Transform",
+                "pages": [
+                  "megaworld/shared-settings/simple-transform-settings",
+                  "megaworld/shared-settings/physics-transform-settings",
+                  "megaworld/shared-settings/physics-effects-settings",
+                  "megaworld/shared-settings/stamper-tool-controller",
+                  "megaworld/shared-settings/position-offset",
+                  "megaworld/shared-settings/spacing"
+                ]
+              },
+              {
+                "group": "Filters & Overlap",
+                "pages": [
+                  "megaworld/shared-settings/simple-filter-settings",
+                  "megaworld/overlap-check-settings/overview"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Scatter System",
+            "pages": [
+              "megaworld/scatter-system/overview",
+              {
+                "group": "Scatter Types",
+                "pages": [
+                  "megaworld/scatter-system/random-point",
+                  "megaworld/scatter-system/random-grid",
+                  "megaworld/scatter-system/poisson-disc",
+                  "megaworld/scatter-system/tiles",
+                  "megaworld/scatter-system/failure-rate"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Mask Filters",
+            "pages": [
+              "megaworld/mask-filters/overview",
+              {
+                "group": "Filter Types",
+                "pages": [
+                  "megaworld/mask-filters/height-filter",
+                  "megaworld/mask-filters/height-noise-filter",
+                  "megaworld/mask-filters/slope-filter",
+                  "megaworld/mask-filters/aspect-filter",
+                  "megaworld/mask-filters/concavity-filter",
+                  "megaworld/mask-filters/textures-filter",
+                  "megaworld/mask-filters/noise-filter",
+                  "megaworld/mask-filters/image-filter",
+                  "megaworld/mask-filters/smooth-filter",
+                  "megaworld/mask-filters/expand-filter",
+                  "megaworld/mask-filters/expand-down-filter",
+                  "megaworld/mask-filters/mask-operations-filter"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Transform Components",
+            "pages": [
+              "megaworld/transform-components/overview",
+              {
+                "group": "Simple",
+                "pages": [
+                  "megaworld/transform-components/align",
+                  "megaworld/transform-components/position-offset",
+                  "megaworld/transform-components/rotation",
+                  "megaworld/transform-components/scale"
+                ]
+              },
+              {
+                "group": "Advanced",
+                "pages": [
+                  "megaworld/transform-components/additional-rotation",
+                  "megaworld/transform-components/cliffs-align",
+                  "megaworld/transform-components/cliffs-position",
+                  "megaworld/transform-components/scale-clamp",
+                  "megaworld/transform-components/scale-fitness",
+                  "megaworld/transform-components/slope-position",
+                  "megaworld/transform-components/slope-scale",
+                  "megaworld/transform-components/snap-rotation",
+                  "megaworld/transform-components/tree-rotation"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Resource Types",
+            "pages": [
+              "megaworld/resource-types/overview",
+              {
+                "group": "Unity",
+                "pages": [
+                  "megaworld/resource-types/unity-gameobject",
+                  "megaworld/resource-types/unity-terrain-tree",
+                  "megaworld/resource-types/unity-terrain-detail",
+                  "megaworld/resource-types/unity-terrain-texture"
+                ]
+              },
+              {
+                "group": "MegaWorld",
+                "pages": [
+                  "megaworld/resource-types/terrain-object"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Preferences",
+            "pages": [
+              "megaworld/preferences/overview",
+              {
+                "group": "Brush",
+                "pages": [
+                  "megaworld/preferences/brush-preferences",
+                  "megaworld/preferences/brush-visualization-preferences"
+                ]
+              },
+              {
+                "group": "Filters",
+                "pages": [
+                  "megaworld/preferences/simple-filter-visualization-preferences",
+                  "megaworld/preferences/mask-filter-visualization-preferences"
+                ]
+              },
+              {
+                "group": "Placement",
+                "pages": [
+                  "megaworld/preferences/overlap-check-preferences",
+                  "megaworld/preferences/raycast-preferences",
+                  "megaworld/preferences/scatter-preferences"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "megaworld/polaris-integration"
+            ]
+          },
+          {
+            "group": "Future Plans",
+            "pages": [
+              "megaworld/future-plans/tool-system",
+              "megaworld/future-plans/selection-view",
+              "megaworld/future-plans/templates-system",
+              "megaworld/future-plans/undo-improvements",
+              "megaworld/future-plans/preferences-system",
+              "megaworld/future-plans/ux-improvements"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {}
+  },
+  "logo": {
+    "light": "/logo/logo.png",
+    "dark": "/logo/logo.png"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Discord",
+        "href": "https://discord.gg/fVAmyXs8GH"
+      }
+    ]
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "footer": {}
+}

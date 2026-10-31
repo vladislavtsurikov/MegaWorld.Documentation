@@ -1,0 +1,43 @@
+---
+title: "Terrain Object"
+description: "Place objects through MegaWorld's custom renderer for optimized large-scale scenes"
+---
+
+**Terrain Object** is MegaWorld's resource kind for prefabs that are managed through a custom object renderer instead of the standard Unity scene hierarchy. It uses the same prefab asset as Unity/GameObject but routes rendering through the Terrain Object renderer system.
+
+## What it places
+
+Any Unity prefab, rendered via the **Terrain Object** renderer. Objects placed as Terrain Objects are not visible as individual GameObjects in the Unity hierarchy the same way as regular scene objects — they are managed by the renderer system for performance.
+
+## Prototype settings
+
+Each Terrain Object prototype wraps a single **Prefab** reference, the same as Unity/GameObject. MegaWorld additionally stores a renderer-side prototype reference used by the Terrain Object renderer.
+
+To add a Terrain Object prototype:
+
+1. Create or select a Type of kind **Terrain Object**.
+2. Drag your prefab into the prototype list.
+3. MegaWorld registers the prototype with the renderer and assigns it a unique ID.
+
+<Note>
+  A Terrain Object renderer must be present in the scene for this resource kind to function.
+</Note>
+
+## Resources Controller
+
+Terrain Object types show a **Get Resources** action.
+
+Use **Get Resources** to read prototypes from the active Terrain Object Renderer selection data and add any missing prefab prototypes to the MegaWorld Type. This is useful when the renderer already has the object set configured and you want MegaWorld tools to use the same resources.
+
+## Unity/GameObject vs Terrain Object
+
+| | Unity/GameObject | Terrain Object |
+|---|---|---|
+| Prefab asset | Any prefab | Any prefab |
+| Scene hierarchy | Standard GameObjects | Managed by renderer |
+| Rendering | Standard Unity rendering | Custom renderer |
+| Requires renderer component | No | Yes |
+
+<Note>
+  Use Terrain Object when you are working with the Polaris terrain system or when the Terrain Object renderer is part of your project setup.
+</Note>
