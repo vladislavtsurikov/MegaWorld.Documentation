@@ -7,9 +7,9 @@ description: "Paint grass and mesh details on Unity Terrain using MegaWorld's de
 
 ## What it places
 
-Detail instances on a Unity Terrain. These are rendered by Unity's built-in terrain detail system and appear as dense grass or mesh-based ground cover depending on the detail type.
+Detail instances on a Unity Terrain. These can be rendered by Unity's built-in terrain detail system or by a compatible third-party vegetation renderer.
 
-Each Unity/Terrain Detail prototype corresponds to one entry in the terrain's detail prototype list.
+Each Unity/Terrain Detail prototype corresponds to an entry in each terrain's detail prototype list. The index is terrain-specific; do not assume that the same index identifies the same asset on every Terrain.
 
 ## Detail types
 
@@ -19,6 +19,8 @@ Unity Terrain supports two kinds of detail rendering:
 - **Mesh** — renders as a mesh using a `GameObject` prefab
 
 When you add a Unity/Terrain Detail prototype in MegaWorld, the editor shows which kind it is and which asset it uses.
+
+For MegaWorld's grass spawning, set the Terrain detail scatter mode to **Instance Count**. If using a third-party renderer, verify it is enabled and its shaders support that renderer's instancing mode. A material tag by itself does not guarantee shader compatibility. A mesh detail is not automatically proof that the full prefab hierarchy or its LOD/impostor transitions are rendered: verify the chosen renderer and actual Terrain detail mesh.
 
 ## Resources Controller
 

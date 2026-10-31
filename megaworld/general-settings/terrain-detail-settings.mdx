@@ -23,6 +23,8 @@ When MegaWorld adds a terrain detail resource to Unity Terrain, it sets the base
 - Texture prototypes disable `usePrototypeMesh`.
 - Mesh prototypes enable `usePrototypeMesh`.
 
+These are the values assigned when a missing resource is created; they do not guarantee that every combination is valid for a given Unity version or vegetation renderer. Inspect the resulting prototype in the Terrain Inspector. In particular, a mesh detail may need `VertexLit` and compatible GPU-instancing shaders; validate it in the target project.
+
 ## Fields from the old doc that are not exposed here
 
 The following fields from the older documentation are not configured by a dedicated MegaWorld settings page in the current project:

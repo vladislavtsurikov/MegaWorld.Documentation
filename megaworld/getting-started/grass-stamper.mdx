@@ -15,7 +15,8 @@ This guide walks you through setting up a grass detail pass using the **Grass St
 You need:
 
 - A Unity project with MegaWorld installed.
-- A Unity Terrain in your scene with at least one detail prototype already configured in the **Terrain Inspector**.
+- A Unity Terrain in your scene. Set its detail scatter mode to **Instance Count**; Coverage mode is not supported by MegaWorld grass spawning.
+- At least one terrain detail prototype, added in the Terrain Inspector or synchronized with **Add Missing Resources** from the MegaWorld group.
 
 ---
 
@@ -39,7 +40,7 @@ Rename the Group to something descriptive, for example **Grass** or **Undergrowt
 
 Inside the Group, click **Add Resource** and choose **Unity/Terrain Detail**.
 
-Assign a detail prototype that matches one already registered in the Unity Terrain Inspector. Repeat to add multiple detail types to the same Group — each prototype will have its own density and filter settings.
+Assign a mesh prefab or texture, then use **Add Missing Resources** if it is not yet registered on the Terrain. Repeat to add multiple detail types to the same Group — each prototype has its own density and filter settings. Several Groups can be attached to one Grass Stamper; they are useful for organizing vegetation layers with different settings.
 
 ---
 
@@ -47,7 +48,7 @@ Assign a detail prototype that matches one already registered in the Unity Terra
 
 In the prototype settings, expand **Spawn Detail Settings**:
 
-- **Density** — maximum detail count per terrain cell.
+- **Density (%)** — percentage of **Max Instances Per Cell** in Grass Spawn preferences, before mask and random effects. For example, 50% of a maximum of 10 is a target of 5.
 - **Use Random Opacity** — adds variation so cells at the same filter fitness get different counts, breaking up a uniform look.
 - **Failure Rate** — randomly zeroes some cells to create natural sparse gaps.
 
@@ -68,6 +69,8 @@ Common setups:
 ## Step 6 — Spawn
 
 In the **Stamper Tool Controller** section, click **Spawn**. Grass Stamper evaluates each active prototype across all Unity Terrains that intersect the stamper bounds and writes the detail density data.
+
+The affected area of each prototype's terrain detail layer is replaced, not added to. Groups that refer to the same Terrain Detail share that layer, so a later group can overwrite the earlier one. A third-party vegetation renderer may need its cached terrain data refreshed to show the new placement.
 
 ---
 
