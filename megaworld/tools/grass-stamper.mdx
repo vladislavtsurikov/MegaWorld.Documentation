@@ -84,4 +84,4 @@ Use several groups when vegetation layers need different settings. Each Terrain 
 
 ## Third-party vegetation renderers
 
-Some renderers cache Terrain Details and need their terrain data refreshed after a spawn. With Nature Renderer, refresh the renderer after changing detail prototypes or detail layers. A material's `NatureRendererInstancing` tag alone does not add procedural instancing to its shader. If The Visual Engine foliage is stretched or misplaced under Nature Renderer, use the TVE Shader Manager to configure the material's shader for **Nature Renderer (Instanced Indirect)**, then let Unity reimport the shader and refresh the renderer. This modifies the shared shader and affects all materials using it; verify other uses as well.
+Some renderers cache Terrain Details and need their terrain data refreshed after a spawn. Configure renderer-specific refresh, shader compatibility and visibility using that renderer's own workflow.
