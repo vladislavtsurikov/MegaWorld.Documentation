@@ -106,3 +106,13 @@ Clamps scale to a min/max range after all other components have run. Use this to
 <Note>
   Brush Modify works especially well after a large procedural pass. Generate the base layer first, then use the brush to add hand-directed variation and break up repetition.
 </Note>
+
+
+## Usage tips
+
+Isolate one transform modifier on a few existing objects before enabling a full stack. Count may remain unchanged even when the transform checksum changes. Choose Global/Local transform space deliberately and keep brush strength restrained so repeated dabs do not overshoot the intended edit.
+
+
+### Tuning individual modifier components
+
+Use Position/Along for small contact corrections and inspect whether objects penetrate or leave the ground. Use Rotation/Vegetation Rotation with restrained tilt when objects should stay upright. Use Scale for deliberate size changes, Randomize Scale for variation, and Scale Clamp after other size modifiers to contain outliers. Test one modifier at a time because repeated brush dabs can accumulate changes.

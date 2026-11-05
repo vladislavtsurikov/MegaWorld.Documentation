@@ -31,3 +31,10 @@ Failure Rate is best when you want:
 
 - Because it removes existing samples, it makes the most sense near the end of the scatter stack.
 - If used alone, it has no useful effect because there are no earlier samples to remove.
+
+
+## Usage tips
+
+Place Failure Rate after a generator to thin existing candidates. Keep it at zero while checking the generator and mask, then add it for local variation.
+
+Use Noise plus Remap when the goal is a large clearing or coherent cluster: independent failures produce fine-scale thinning rather than a structured habitat mask.

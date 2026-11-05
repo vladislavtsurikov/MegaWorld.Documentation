@@ -159,3 +159,10 @@ Global overlap-search behavior is controlled separately in:
 - **Buildings and modular props**: Use **Bounds Check**, usually with **Bounds Prefab** first.
 - **Small clutter**: Use **Sphere Check** with **Vegetation Mode** off for simple spacing.
 - **Only block scene geometry**: Set **Overlap Shape** to `None` and enable **Collision Check**.
+
+
+## Usage tips
+
+Enable overlap checks when objects must respect existing scene geometry or each other, such as rocks and trees. Start with a small representative patch and confirm the overlap shape matches the actual asset footprint.
+
+An overly large overlap volume can reject every candidate. Diagnose it by disabling only the overlap component, comparing counts, then restoring a suitable size; increasing spawn attempts can otherwise hide the real cause.

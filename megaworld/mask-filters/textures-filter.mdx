@@ -14,3 +14,10 @@ Textures Filter allows you to select one or more terrain texture layers and rest
 <Note>
   The filter samples the terrain's texture splat map. If a texture is only partially painted on a surface, the mask will reflect the blend weight — areas with more of the selected texture will have a higher mask value.
 </Note>
+
+
+## Usage tips
+
+Select the actual Terrain Layers used in the scene, then inspect transition zones where several layers blend. A layer mask follows painted weights, so a barely painted layer can produce weak fitness even when it is visible.
+
+Multiply it with noise for irregular growth within moss/soil, and use different layer preferences for separate species. Check Terrain Layer resource setup before treating an empty mask as a noise problem.

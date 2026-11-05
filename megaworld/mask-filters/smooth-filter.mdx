@@ -17,3 +17,10 @@ Smooth Filter applies a Gaussian blur to the mask, softening sharp transitions l
 <Note>
   Place this filter after a Height Filter or Slope Filter to soften the boundary edges of those masks before multiplying with other filters.
 </Note>
+
+
+## Usage tips
+
+Place Smooth after a noisy or sharply remapped stage when small holes and jagged borders are distracting. Compare the same Area before and after smoothing.
+
+Smoothing blends exclusions back into neighboring pixels. Put important slope, height or authored-boundary Multiply restrictions after it when those limits must remain intact. Excessive smoothing can erase the clump structure you intended to keep.

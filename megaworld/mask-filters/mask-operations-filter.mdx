@@ -26,3 +26,10 @@ Mask Operations Filter applies a single mathematical operation to the current ma
 
   - **Remap** — stretches a specific input range to fill the full 0–1 output range. Use this to amplify subtle differences in a narrow part of the mask.
     - **Remap Range** — the input range to remap. Default is `0.4–0.6`.
+
+
+## Usage tips
+
+Use Remap after Noise to turn broad gray values into clear vegetation clusters. A starting interval of `[0.4, 0.6]` makes a sharper result than a broad interval such as `[0.2, 0.8]`; adjust thresholds to control coverage and keep min below max.
+
+Remap acts on the entire preceding stack. Place it immediately after the mask you intend to shape, then apply any hard exclusions with Multiply. For an inverse species distribution, copy the noise setup and use Invert before the final slope/height restrictions. Clamp alone limits the range; it does not create the same full-contrast cluster transition as Remap.

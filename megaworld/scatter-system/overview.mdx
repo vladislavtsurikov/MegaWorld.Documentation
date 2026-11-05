@@ -78,3 +78,10 @@ This preference affects systems such as **Random Point**, which can use a check-
     Remove part of an existing sample set to make the result sparser.
   </Card>
 </CardGroup>
+
+
+## Usage tips
+
+Use one main generator first, then add modifiers such as Failure Rate. Inspect how many candidate points the generator produces before changing prototype success or filters.
+
+Put species requiring different candidate spacing/counts in separate groups. A shared scatter component means those prototypes inherit the same candidate-generation rules; per-prototype density and masks do not replace group-level scatter controls.

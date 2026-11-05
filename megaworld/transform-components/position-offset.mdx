@@ -14,3 +14,10 @@ Position Offset shifts the object up or down along the Y axis at spawn time. The
 <Note>
   Set both Min and Max to the same value if you want every object to always spawn at the same offset.
 </Note>
+
+
+## Usage tips
+
+Use a small vertical adjustment to correct a known prefab pivot/contact mismatch. Test on both flat and sloped ground, and avoid a large offset that hides an incorrect raycast or transform order.
+
+Transform components execute as a stack. Change one stage at a time and inspect the final transform before copying settings to other prototypes.

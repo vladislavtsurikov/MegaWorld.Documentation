@@ -22,3 +22,10 @@ Height Filter restricts spawning to a specific elevation range. Objects outside 
 - **Max Add Height Falloff** — falloff distance applied above Max Height (only when Height Falloff Min Max is enabled). Default is `30`.
 
 - **Add Height Falloff** — unified falloff distance applied to both edges (only when Height Falloff Min Max is disabled). Default is `30`.
+
+
+## Usage tips
+
+Sample terrain heights first and choose world-height limits for the actual scene. Start with a wide interval, then tighten it around a shoreline or elevation band.
+
+Use a falloff at the boundary to avoid a visible horizontal contour. Combine with Noise/Height Noise when the ecological boundary should be irregular, and keep slope exclusions in a later Multiply stage.

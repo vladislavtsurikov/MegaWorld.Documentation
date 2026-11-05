@@ -83,3 +83,13 @@ Edit is best when you want:
 - targeted adjustments to individual placed objects without affecting others;
 - quick removal of specific objects;
 - precise rotation or scale corrections after a brush pass.
+
+
+## Usage tips
+
+Use a small selected set to verify which objects are being edited before applying a broad operation. For deterministic automation of an existing transform, use the Unity object tools when the interactive handles do not expose a field-based action.
+
+
+### Tuning action components
+
+Test Rotate, Scale and Move Along Direction on one recognizable object before editing a broad selection. Check Raycast-based movement against the intended surface and Paint Layers. Remove deletes selected scene instances; temporarily disabling a prototype does not perform that deletion.

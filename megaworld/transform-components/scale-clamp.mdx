@@ -16,3 +16,10 @@ Each axis (X, Y, Z) is clamped independently.
 <Note>
   Add this component last in the stack when you have multiple scale-modifying components, to ensure the cumulative result stays within acceptable bounds.
 </Note>
+
+
+## Usage tips
+
+Use this as a final guard after scale modifiers when extreme fitness/slope values create outliers. Verify that the clamp range still allows the intended natural variation instead of collapsing every instance to one size.
+
+Transform components execute as a stack. Change one stage at a time and inspect the final transform before copying settings to other prototypes.

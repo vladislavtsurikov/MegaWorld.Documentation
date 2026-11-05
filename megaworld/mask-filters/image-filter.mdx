@@ -24,3 +24,10 @@ Image Filter lets you use any texture as a mask. You can sample the image in gra
 - **Color Accuracy** — how strictly the color must match. Higher values require a closer match; lower values allow more variation. Default is `0.5`.
 
 - **Offset X / Offset Z** — UV offset to reposition the texture over the terrain.
+
+
+## Usage tips
+
+Use a grayscale authoring mask with a recognizable asymmetric landmark to check orientation and offsets. Inspect the mask alone before multiplying it into a longer stack.
+
+Keep intentional black exclusions black through later stages: an Add operation can re-enable them. Avoid using a color-match mode for a grayscale mask unless color selection is the intended behavior.

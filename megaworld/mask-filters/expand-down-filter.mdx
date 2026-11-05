@@ -8,3 +8,10 @@ Expand Down Filter is similar to [Expand Filter](/megaworld/mask-filters/expand-
 ## Settings
 
 - **Kernel Size** — controls how much the mask expands downward. Larger values push the mask further down the terrain. Minimum is `0.1`. Default is `1`.
+
+
+## Usage tips
+
+Use this for spreading an existing mask downhill rather than uniformly in all directions. First inspect the input mask and confirm the terrain has the slope direction you expect.
+
+Use a small effect and inspect hollows and ridge crossings. Apply a final height/Area restriction when spreading must stop at a shoreline or authored border.

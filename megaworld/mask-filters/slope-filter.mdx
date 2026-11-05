@@ -26,3 +26,10 @@ Slope Filter restricts spawning to surfaces within a specific angle range. A slo
 <Note>
   To spawn objects only on flat ground, use Min Slope `0` and Max Slope `20–30`. To spawn only on cliffs, use Min Slope `60–70` and Max Slope `90`.
 </Note>
+
+
+## Usage tips
+
+For low vegetation, start with a moderate maximum slope and a soft transition, then inspect exposed rock and steep banks. The appropriate angle depends on the actual terrain, not the species name alone.
+
+Use Multiply after noise/remapping to preserve exclusions. Tune the transition separately from Max Slope: a hard threshold can leave obvious contour bands. If broad regions vanish, inspect the slope mask alone before changing the noise.

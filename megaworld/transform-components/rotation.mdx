@@ -20,3 +20,10 @@ Rotation applies a random rotation to spawned objects. You control how much rand
 <Note>
   The value maps linearly to degrees: a value of `100` = 360°, `50` = 180°, `10` = 36°.
 </Note>
+
+
+## Usage tips
+
+For vegetation, start with broad yaw variation and restrained pitch/roll so plants keep a plausible growth direction. Inspect against a silhouette or visible texture direction to catch repeated orientations.
+
+Transform components execute as a stack. Change one stage at a time and inspect the final transform before copying settings to other prototypes.

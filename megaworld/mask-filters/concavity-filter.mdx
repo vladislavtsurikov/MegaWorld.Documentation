@@ -18,3 +18,10 @@ Concavity Filter detects the curvature of the terrain surface and generates a ma
 - **Feature Size** — specifies the scale of terrain features that influence the detection. Larger values detect broader, more gradual curvature; smaller values pick up fine surface details.
 
 - **Remap Curve** — remaps the raw concavity values before the final mask is produced. Adjust this curve to control how the detected curvature translates into mask intensity.
+
+
+## Usage tips
+
+Use a concavity mask to distinguish hollows from exposed ridges. Start with a broad, soft response and inspect it without noise before combining the masks.
+
+Terrain resolution and terrain shape affect the signal. If the result is noisy or covers everything, compare a larger representative Area and moderate the response before multiplying it into the final stack.

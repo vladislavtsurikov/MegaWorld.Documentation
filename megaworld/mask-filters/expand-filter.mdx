@@ -8,3 +8,10 @@ Expand Filter grows (dilates) the current mask outward, making white areas large
 ## Settings
 
 - **Kernel Size** — controls how much the mask is dilated. Larger values expand the mask further. Minimum is `0.1`. Default is `1`.
+
+
+## Usage tips
+
+Use Expand to enlarge a useful mask shape instead of raising density everywhere. Inspect narrow gaps and boundaries after each change because separate islands can merge.
+
+Apply hard exclusions afterward with Multiply. Expansion is a spatial operation on the mask, so its visible world-space effect depends on mask resolution; compare on the actual Terrain.

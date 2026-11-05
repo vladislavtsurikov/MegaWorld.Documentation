@@ -85,3 +85,12 @@ Use several groups when vegetation layers need different settings. Each Terrain 
 ## Third-party vegetation renderers
 
 Some renderers cache Terrain Details and need their terrain data refreshed after a spawn. Configure renderer-specific refresh, shader compatibility and visibility using that renderer's own workflow.
+
+
+## Use several related mesh variations
+
+Prefer a small family of similar prefab variants for each plant species instead of repeating one mesh everywhere. For example, begin with three related fern variants that share leaf shape/materials but differ in frond arrangement and silhouette. Rotation and scale variation alone cannot hide the repeated silhouette of one mesh.
+
+Keep related variants in the same species group when they use the same habitat mask and spawn rules. Split ground-cover, medium clumps and accent plants into separate groups when they need different distribution or density. Divide the intended species density across its variants: adding three prototypes at the original full density can triple the vegetation load. Preserve a dominant silhouette, use secondary variants less often, and avoid mixing unrelated plant shapes merely to increase variety.
+
+Evaluate from the intended camera distance. Use larger recognizable plants as accents, smaller variants as connected ground cover, and retain patches of exposed ground and rock rather than producing a uniform carpet. Inspect each layer alone, then compare the final mixture against the reference.

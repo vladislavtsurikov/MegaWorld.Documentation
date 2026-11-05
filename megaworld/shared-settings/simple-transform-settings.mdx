@@ -26,3 +26,10 @@ Simple Transform Settings are most relevant in workflows such as:
 - Simple Transform Settings are more lightweight.
 - The full Transform Components system supports a broader modular stack and more specialized components.
 - Use the full system when you need slope-aware or cliff-specific behavior.
+
+
+## Usage tips
+
+Establish a believable base scale and ground alignment before adding random rotation or offsets. Test a single recognizable prefab so pivot or axis mistakes are easy to see.
+
+Use a small patch to check both flat ground and a slope. Large position offsets can detach plants from the surface even when the spawn ray hits correctly.

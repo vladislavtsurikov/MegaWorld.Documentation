@@ -1,0 +1,38 @@
+---
+title: "Component inspection and automation"
+description: "Discover, inspect, edit and reset MegaWorld components through MCP"
+---
+
+## Locate the owner first
+
+Group and Prototype components are stored on the Group asset. General components are shared across relevant tools on that owner; tool-specific components belong to one tool's stack. Global common components affect the project, while global per-tool components hold settings such as brush size for that tool. Stamper components such as Area/controller settings are stored on the scene object.
+
+Use `megaworld_core_list_group_components`, `megaworld_core_list_prototype_components`, `megaworld_core_list_global_common_components`, `megaworld_core_list_global_tool_components` or `megaworld_core_list_stamper_components` for the appropriate owner. Each result includes exact types, IDs, bucket/tool scope and an `inspectorTarget`. The available-component catalog (`megaworld_core_list_available_components`) describes the Group/Prototype components declared by a selected tool without adding them.
+
+## Read and edit fields
+
+Pass the returned `inspectorTarget.provider` and `inspectorTarget.target` to `custom_inspector_read_fields`. It returns exact serialized field paths, labels, values, tooltips, enum options and writable flags. Expand a nested path or raise depth when a needed field is not yet included.
+
+Send `custom_inspector_set_fields` the same target and a `values` map. For a selected NoiseFilter, for example:
+
+```json
+{
+  "NoiseSettings.TransformSettings.Scale": [18, 18, 18],
+  "NoiseSettings.TransformSettings.Translation": [7, 0, 13],
+  "BlendMode": "Multiply"
+}
+```
+
+These tools apply Custom Inspector conditions and value processors, record Undo and save the owning asset. They edit existing leaf values, not object/list structure. Add components with Unity execute_code, then discover and edit them through MCP. Hand-written custom drawer interactions can impose extra semantics beyond reflected fields; use the documented component API for those actions. Changing fields does not itself spawn.
+
+## Select and reset one component
+
+`megaworld_core_get_component` uses the owner scope plus an exact component type/ID. `componentPath` can select a nested filter using the field path discovered above, such as `MaskFilterStack._elementList[1]`.
+
+`megaworld_core_reset_component` uses the native Reset operation with Undo. It replaces that component with its defaults, including its nested data; it does not reset sibling components. Use the returned fresh inspectorTarget because Reset changes node IDs. Copy tuned settings first if they may be needed later.
+
+`megaworld_core_get_component_documentation` reads a component's mapped local Markdown/MDX page, including its usage tips. It accepts a type alone or an owner/component selector. A missing mapping/page is reported explicitly.
+
+## Usage tips
+
+For vegetation, tune one species on a small representative Area. Compare Noise/Remap masks before spawning, then evaluate actual density, scale and silhouettes. Copy a useful baseline to compatible prototypes, vary species masks/offsets and keep independent group-level spawn rules in separate groups. Temporarily disable other prototypes for comparisons; Active does not erase previously spawned data.

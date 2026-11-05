@@ -34,3 +34,10 @@ If Layer Settings are wrong, tools can fail in ways that look unrelated:
 <Note>
   If a tool suddenly stops hitting the scene correctly, check Layer Settings before changing anything else.
 </Note>
+
+
+## Usage tips
+
+Verify the Terrain or mesh surface layer before a spawn test. Paint Layers is a bitmask: layer 0 uses value 1, while value 8 selects layer 3.
+
+Do not broaden the mask to every layer to conceal a missed raycast; that can target unrelated scene geometry. This is a shared global setting, so restore temporary overrides after diagnosis.

@@ -22,3 +22,10 @@ Even in a physics workflow, the initial transform still matters:
 - it changes where the object starts;
 - it changes the initial rotation before the simulation reacts;
 - it changes the size that enters the simulation.
+
+
+## Usage tips
+
+Check the prefab pivot, initial size and surface orientation before running a large physics scatter. Verify one object first so transform mistakes are not mistaken for simulation problems.
+
+Tune small scale and rotation variations before widening the ranges. Keep large accent assets in a separate group when their transform and collision requirements differ from ground cover.

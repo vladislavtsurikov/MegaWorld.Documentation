@@ -66,3 +66,8 @@ Brush Physics is best when you want to:
 - The tool belongs to the **PhysX Painter** family.
 - Undo is registered after you release the mouse button, so a full drag stroke is undone in one step.
 - The physics simulator uses **acceleration physics mode** and **ObjectTimeDisablePhysicsMode**, which means each object is simulated for a time limit rather than globally.
+
+
+## Usage tips
+
+Begin with a few objects and a small brush. Let physics settle, then inspect objects beyond the brush boundary as well: a valid spawn can move out of the original area. Check collider sizes and initial transforms before increasing impulses or counts.

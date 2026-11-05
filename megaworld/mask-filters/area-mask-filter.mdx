@@ -1,0 +1,15 @@
+---
+title: "Area Mask Filter"
+description: "Use a named world-area mask in a Terrain filter stack"
+---
+
+Area Mask reads a named mask from the Terrain Area mask system. `MaskId` selects the mask, `Orientation` controls image orientation and `BlendMode` combines it with the previous filter output. The mask is cropped to the current evaluation area instead of stretching every Terrain intersection to the complete image.
+
+An empty MaskId passes the current mask through. A nonempty ID that cannot resolve a mask outputs black, so no samples pass that stage. This distinction is useful when diagnosing an empty spawn.
+
+## Usage tips
+
+- Establish the Area mask and its ID before adding this filter. Inspect its grayscale output before combining it with noise.
+- Use Multiply to keep vegetation inside the authored region. Add Noise followed by Remap for irregular patches within that boundary.
+- Verify orientation at a recognizable corner of the world Area; rotating the texture can otherwise place clearings on the wrong side.
+- If the output is completely black, check the ID and mask availability before increasing density. Density cannot recover a zero mask.

@@ -18,3 +18,10 @@ Controls the strength of the effect.
 ## Direction
 
 - **Random Strength** — controls the direction of the applied force as a lerp between straight down `(0, -1, 0)` and a random horizontal direction. At `0` the force points directly downward. At `100` the force points in a fully random horizontal direction. Values in between blend the two. Default is `50`.
+
+
+## Usage tips
+
+Use a short test with a few objects and wait for the simulation to settle before evaluating positions. Increase the measured/captured area when impulses can move objects beyond the spawn region.
+
+Tune one force/effect at a time. If results explode or travel too far, reduce the applied effect and inspect collider scale rather than simply increasing the simulation duration.

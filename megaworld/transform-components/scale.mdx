@@ -16,3 +16,10 @@ Scale randomizes the size of objects at spawn time within a range you define. Yo
 <Note>
   Set Min and Max to the same value if you want every object to always spawn at a fixed size.
 </Note>
+
+
+## Usage tips
+
+Choose the base size using nearby scene geometry, then add a modest min/max range. Use separate groups or prototypes for genuinely different size classes instead of one extreme range that produces both tiny and oversized plants.
+
+Transform components execute as a stack. Change one stage at a time and inspect the final transform before copying settings to other prototypes.

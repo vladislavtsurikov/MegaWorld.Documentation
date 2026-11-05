@@ -98,3 +98,18 @@ Filter Settings are split into two workflows:
     Apply mathematical operations to the current mask (invert, clamp, remap, etc.).
   </Card>
 </CardGroup>
+
+## Reading a mask without a scene capture
+
+The Stamper MCP tool `megaworld_stamper_get_visualization` accepts a stamper `target`, an attached `groupPath` and a unique `prototypeName`. It evaluates that prototype's native GPU filter stack and returns one top-down grayscale PNG for each intersecting Terrain, plus full Area center/size in world units and each mask's world-space XZ rectangle. Image right is world +X; image up is +Z. The image uses the native Terrain mask resolution.
+
+White means fitness 1; black means 0. `meanFitness` is the average mask weight and `nonzeroFraction` is the fraction above 0.001. With no enabled filters the stack is white. Inactive filters are skipped. This image contains raw filter fitness, not final spawn density: random opacity, failure rate, density and spawn-area falloff are separate. An inactive prototype can have a white mask and still produce no new instances.
+
+Use this output to compare noise scale/offset and slope or blend settings before spawning. A scene capture remains useful for checking lighting, scale and the final visible distribution.
+
+
+## Usage tips
+
+Build and inspect a short stack before adding more filters: Noise → Remap → Slope (Multiply) is a useful vegetation starting point. Add height or texture restrictions only when the patch needs them.
+
+Change one stage at a time and compare raw grayscale coverage on the same Area. A completely black result usually calls for checking thresholds or Multiply stages, not increasing density. An all-white result means the filters are not providing spatial variation. Keep a tuned species as a baseline and change other species' noise offsets or thresholds to avoid identical silhouettes.

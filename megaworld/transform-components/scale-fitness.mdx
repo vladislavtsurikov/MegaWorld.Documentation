@@ -16,3 +16,10 @@ Scale Fitness adjusts the object's scale based on how well the placement conditi
 <Note>
   Use a negative Offset Scale to make objects on marginal terrain appear smaller and less prominent, reinforcing the idea that conditions there are less favorable.
 </Note>
+
+
+## Usage tips
+
+Use fitness-driven scale for a gradual transition at habitat edges, but retain a sensible minimum so low-fitness plants do not become invisible specks. Compare the mask and silhouette together: fitness may already affect acceptance or density.
+
+Transform components execute as a stack. Change one stage at a time and inspect the final transform before copying settings to other prototypes.

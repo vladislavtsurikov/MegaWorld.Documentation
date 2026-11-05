@@ -1,0 +1,12 @@
+---
+title: "Transform Space Settings"
+description: "Choose the shared coordinate space used by transform editing tools"
+---
+
+`TransformSpaceSettings` is a global common component. Its `TransformSpace` selects Global or Local axes for tools that consume this setting. It is separate from the transform stack on a prototype and is not a spawn-density control.
+
+## Usage tips
+
+- Use Global when comparing offsets along fixed world axes across differently rotated objects.
+- Use Local when an edit should follow each object's own orientation. Check one rotated instance before applying the edit to a large selection.
+- Read the current value before a temporary editing operation and restore it afterward: global common settings are shared across relevant tools.

@@ -27,3 +27,21 @@ For layered vegetation, use distinct prototypes and tune each prototype's mask s
 <Note>
   Use **Use Random Opacity** together with a medium **Density** when you want natural grass variation. Increase **Failure Rate (%)** when you want more empty patches without changing the overall mask shape.
 </Note>
+
+
+## Usage tips
+
+Start by disabling Random Opacity and setting Failure Rate to 0 on a test patch: this makes the mask-to-density relationship easier to inspect. Then reintroduce variation deliberately.
+
+Use mask scale and Remap for large clearings and clumps; use Failure Rate for local thinning. Increasing failure alone tends to create speckled gaps rather than coherent patches. Tune each species separately, then combine several groups with different prototype masks and density settings. Density is a percentage, not the number of visible mesh objects; Terrain detail resolution and the shared Grass Spawn preference also matters.
+
+
+## Use several related mesh variations
+
+Prefer a small family of similar prefab variants for each plant species instead of repeating one mesh everywhere. For example, begin with three related fern variants that share leaf shape/materials but differ in frond arrangement and silhouette. Rotation and scale variation alone cannot hide the repeated silhouette of one mesh.
+
+Keep related variants in the same species group when they use the same habitat mask and spawn rules. Split ground-cover, medium clumps and accent plants into separate groups when they need different distribution or density. Divide the intended species density across its variants: adding three prototypes at the original full density can triple the vegetation load. Preserve a dominant silhouette, use secondary variants less often, and avoid mixing unrelated plant shapes merely to increase variety.
+
+Evaluate from the intended camera distance. Use larger recognizable plants as accents, smaller variants as connected ground cover, and retain patches of exposed ground and rock rather than producing a uniform carpet. Inspect each layer alone, then compare the final mixture against the reference.
+
+In the installed GrassStamper implementation, Max Instances Per Cell comes from the shared Grass Spawn preferences. It is not a separate per-group value. Species/variation density and masks remain per-prototype; do not increase the shared maximum just to compensate for one weak mask.

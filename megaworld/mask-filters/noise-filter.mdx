@@ -13,7 +13,18 @@ Noise Filter introduces fractal noise into the mask, creating natural-looking ra
 
   - **Noise Type** — the noise algorithm: Perlin, Value, Billow, Ridge, or Voronoi.
   - **Fractal Type** — the fractal layering method (e.g. FBm — Fractional Brownian Motion).
-  - **Scale** — the size of the noise pattern. Larger values create bigger, more spread-out features.
+  - **Scale** — the size of the noise pattern. Scale multiplies sample coordinates; larger values generally create smaller, more frequent features.
   - **Translation** — offsets the noise pattern in X, Y, Z world space.
   - **Rotation** — rotates the noise pattern.
   - **Flip Scale X/Y/Z** — mirrors the noise pattern along the chosen axis.
+
+
+## Usage tips
+
+For vegetation patches, begin with **Noise → Mask Operations (Remap)**. Start Remap near `[0.4, 0.6]`: lower input values become black and upper values become white, with a transition between them. Narrow that interval for firmer cluster edges; widen it for a softer density gradient. Keep the two thresholds distinct.
+
+Scale multiplies sample coordinates in the installed implementation. Increasing it generally produces smaller, more frequent features; reducing it gives broader patches. Compare half and double the current scale on the same Area instead of assuming that a number is a patch size in meters. Unequal X/Z scale stretches the pattern directionally.
+
+Change Translation to decorrelate species while retaining a similar patch size. Rotate the pattern when stretched noise aligns unnaturally with the terrain axes. Use Multiply with slope/height restrictions so that adding noise does not re-enable steep or excluded ground.
+
+If Remap should affect only noise, place **Noise → Remap → Slope (Multiply)**. Putting Remap after Noise multiplied by Slope remaps their combined result, which can change the slope transition too. Compare the raw visualization and mean fitness before changing density. The final visible density also includes opacity and failure settings.

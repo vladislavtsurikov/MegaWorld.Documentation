@@ -171,7 +171,8 @@
                   "megaworld/general-settings/terrain-detail-settings",
                   "megaworld/general-settings/additional-spawn-settings",
                   "megaworld/shared-settings/random-seed-settings",
-                  "megaworld/shared-settings/success"
+                  "megaworld/shared-settings/success",
+                  "megaworld/general-settings/component-mcp-workflow"
                 ]
               },
               {
@@ -179,6 +180,7 @@
                 "pages": [
                   "megaworld/shared-settings/area-settings",
                   "megaworld/shared-settings/layer-settings",
+                  "megaworld/shared-settings/transform-space-settings",
                   "megaworld/shared-settings/brush-settings"
                 ]
               },
@@ -233,6 +235,7 @@
                   "megaworld/mask-filters/textures-filter",
                   "megaworld/mask-filters/noise-filter",
                   "megaworld/mask-filters/image-filter",
+                  "megaworld/mask-filters/area-mask-filter",
                   "megaworld/mask-filters/smooth-filter",
                   "megaworld/mask-filters/expand-filter",
                   "megaworld/mask-filters/expand-down-filter",

@@ -97,3 +97,18 @@ Physics Effects is best when you want to:
 - The tool only affects objects whose prototype is currently selected in the active group.
 - This tool uses **GlobalTimeDisablePhysicsMode** (not per-object time), which means all affected objects simulate together for a shared duration after each interaction.
 - The effect runs on the selected effect only — all other effects in the stack are ignored.
+
+
+## Usage tips
+
+Select a small known set and apply one effect first. Inspect the settled result with enough space around the selection to catch objects moved by the effect. Keep global effect settings separate from per-prototype spawn transforms.
+
+
+### Tuning individual effect components
+
+- Explosion pushes outward: test a low force with a few objects and inspect landing positions beyond the overlap sphere.
+- Black Hole pulls toward the center: keep the radius and force small while checking whether objects pile up or pass each other.
+- Fly Up mainly changes vertical movement: check headroom and wait for objects to return before judging the layout.
+- Simple Force uses a direction: test it against a world-axis landmark before rotating or increasing the effect.
+
+Only the selected effect is applied by this tool; adding several effect components does not mean they all run together.

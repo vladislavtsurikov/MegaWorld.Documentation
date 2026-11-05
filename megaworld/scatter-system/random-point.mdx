@@ -25,3 +25,10 @@ Random Point is best when you want:
 
 - Random Point does not guarantee spacing between results.
 - If you need more even distribution, use [Poisson Disc](/megaworld/scatter-system/poisson-disc) instead.
+
+
+## Usage tips
+
+Use Random Point when loose clustering and occasional overlaps are acceptable. Check a small area first because unstructured random points naturally leave both gaps and dense clusters.
+
+For a more even minimum spacing, compare Poisson Disc instead of compensating with many failed overlap checks. Keep counts stable while tuning filters so that distribution changes remain understandable.

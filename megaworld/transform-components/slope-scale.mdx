@@ -14,3 +14,10 @@ Slope Scale adds a scale offset that grows with terrain steepness. On flat groun
 - **Max Uniform Scale Offset** — the scale offset added at maximum slope, applied equally to all axes. Only shown when Uniform Scale Offset is enabled. Default is `2`.
 
 - **Max Scale Offset** — per-axis scale offsets (X, Y, Z) added at maximum slope. Only shown when Uniform Scale Offset is disabled. Default is `(2, 2, 0.5)`.
+
+
+## Usage tips
+
+This component adds a configured scale offset as the surface approaches Max Slope; a positive offset makes steeper instances larger. Check flat ground and the steepest accepted slope before combining it with another modifier. Keep offsets modest or use Scale Clamp if the resulting size becomes excessive.
+
+Transform components execute as a stack. Change one stage at a time and inspect the final transform before copying settings to other prototypes.

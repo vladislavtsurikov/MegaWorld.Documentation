@@ -14,3 +14,10 @@ This is useful when you need to correct the default orientation of a prefab, or 
 <Note>
   Place this component after Rotation or Align in the stack if you want to fine-tune the final orientation without overriding the randomization those components apply.
 </Note>
+
+
+## Usage tips
+
+Apply a small local correction when the source mesh axes differ from the expected upright direction. Validate it on one recognizable prefab before adding random yaw; a 90-degree correction is an asset-axis fix, not natural variation.
+
+Transform components execute as a stack. Change one stage at a time and inspect the final transform before copying settings to other prototypes.
